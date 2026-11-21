@@ -1,0 +1,245 @@
+/* Hallmark · shape: Industrial Specification & Catalog Dossier · genre: editorial · theme: custom-brand · job: buy · idea: "Bilingual Sino-Egyptian industrial polymer and ASA surface film catalog engineered with strict Brand Identity Board palette and verified ISO/ASTM metrics" · vibe: "architectural deep navy ivory gold industrial authority"
+ * paper: #f5f2ea · accent: #a6191e · display: Alexandria / IBM Plex Sans · body: IBM Plex Sans Arabic / IBM Plex Sans
+ * hero: User-controlled 2-slide architectural showcase on #08354d with Sino-Egyptian fretwork, River twin-ribbon motif, circular seal, and corrugated ASA specimen · nav: static top utility band + sticky single-row 7-destination bilingual header with keyboard dropdowns and live search overlay · footer: 3-column Deep Blue architectural band with Sino-Egyptian heritage banner · imagery: optimized WebP photographs · signature: interactive 5-swatch catalogue texture and masterbatch explorer
+ * axes: light/geometric-sans/warm · posture: editorial · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · weakest: R, enforced sentence-case untracked labels, zero pill eyebrows above H1, zero em/en dashes, and strict CSS logical properties for RTL/LTR parity */
+
+@import "tailwindcss";
+@import "./tokens.css";
+
+@theme inline {
+  --color-navy: var(--color-navy);
+  --color-navy-deep: var(--color-navy-deep);
+  --color-navy-surface: var(--color-navy-surface);
+  --color-navy-border: var(--color-navy-border);
+  --color-ivory: var(--color-ivory);
+  --color-ivory-elevated: var(--color-ivory-elevated);
+  --color-sand: var(--color-sand);
+  --color-sand-border: var(--color-sand-border);
+  --color-sand-muted: var(--color-sand-muted);
+  --color-gold: var(--color-gold);
+  --color-gold-bright: var(--color-gold-bright);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-crimson: var(--color-crimson);
+  --color-crimson-hover: var(--color-crimson-hover);
+  --color-ink: var(--color-ink);
+  --color-charcoal: var(--color-charcoal);
+  --color-on-navy: var(--color-on-navy);
+  --color-on-navy-muted: var(--color-on-navy-muted);
+  --color-error: var(--color-error);
+  --color-error-bg: var(--color-error-bg);
+  --color-error-border: var(--color-error-border);
+  --color-success: var(--color-success);
+  --color-success-bg: var(--color-success-bg);
+  --color-success-border: var(--color-success-border);
+  --color-whatsapp: var(--color-whatsapp);
+  --color-whatsapp-hover: var(--color-whatsapp-hover);
+  --font-wordmark: var(--font-wordmark);
+}
+
+/* Hallmark Floor #4: overflow-x: clip on both html and body, never hidden, never 100vw */
+html,
+body {
+  overflow-x: clip;
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[lang="ar"] body {
+  font-family: var(--font-sans-ar);
+  line-height: 1.72;
+}
+
+html[lang="en"] body {
+  font-family: var(--font-sans-en);
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4 {
+  font-family: var(--font-display-ar);
+  line-height: 1.38;
+}
+
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] h4 {
+  font-family: var(--font-sans-en);
+  line-height: 1.22;
+}
+
+/* Hallmark Floor #5: display heads carry overflow-wrap: break-word; min-width: 0 */
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: break-word;
+  min-width: 0;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+/* Hallmark Floor #14: Container capped at 1380px and centered with responsive inline padding */
+.catalog-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter-mobile);
+}
+
+@media (min-width: 640px) {
+  .catalog-container {
+    padding-inline: var(--gutter-tablet);
+  }
+}
+
+@media (min-width: 1280px) {
+  .catalog-container {
+    padding-inline: var(--gutter-desktop);
+  }
+}
+
+/* antislop R-39 & Hallmark Floor #6: Cursor affordances and instant :focus-visible outlines */
+a[href],
+button:not(:disabled),
+summary,
+select:not(:disabled),
+label[for],
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+[role="tab"]:not([aria-disabled="true"]) {
+  cursor: pointer;
+}
+
+button:disabled,
+select:disabled,
+input:disabled,
+textarea:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Skip Link */
+.skip-to-main {
+  position: fixed;
+  inset-block-start: var(--space-sm);
+  inset-inline-start: var(--space-md);
+  z-index: 999;
+  background-color: var(--color-navy-deep);
+  color: var(--color-on-navy);
+  border: 2px solid var(--color-gold);
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-lg);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  transform: translateY(-200%);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.skip-to-main:focus-visible {
+  transform: translateY(0);
+}
+
+/* Brand Identity Motif 3 (R-07 Written Purpose):
+ * Subtle Sino-Egyptian architectural fretwork pattern (opacity 0.06) on Deep Blue #08354d structural bands
+ * and subtle Pyramid/Sun/Dragon geometric watermark (opacity 0.04) on Ivory specification surfaces. */
+.bg-sino-fretwork {
+  background-color: var(--color-navy);
+  background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4h24v24H12V12h8v8h-4v-4h12v12H4V4zm32 0h24v24H44V12h8v8h-4v-4h12v12H36V4zM4 36h24v24H12V44h8v8h-4v-4h12v12H4V36zm32 32V36h24v24H44V44h8v8h-4v-4h12v12H36z' fill='none' stroke='%23c59b48' stroke-width='1' stroke-opacity='0.06'/%3E%3C/svg%3E");
+}
+
+.bg-ivory-watermark {
+  background-color: var(--color-ivory);
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2308354d' stroke-width='1' stroke-opacity='0.04'%3E%3Cpolygon points='60,24 100,92 20,92'/%3E%3Ccircle cx='60' cy='58' r='16'/%3E%3Cpath d='M20,92 L100,92'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Micro-interactions (MOTION 1 & Hallmark Floor #2: transform, opacity, color, background-color, border-color only) */
+.interactive-card {
+  transition:
+    transform var(--dur-normal) var(--ease-out),
+    border-color var(--dur-normal) var(--ease-out),
+    box-shadow var(--dur-normal) var(--ease-out);
+}
+
+.interactive-card:hover {
+  transform: translateY(-2px);
+}
+
+.zoom-frame {
+  overflow: hidden;
+  transition: border-color var(--dur-normal) var(--ease-out);
+}
+
+.btn-action {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding-block: var(--space-sm);
+  padding-inline: var(--space-lg);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.btn-action:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn-action:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* Photorealistic Corrugated Roof Sheet Live Color Previewer (Feature #2) */
+.roof-sheet-stage {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    var(--color-sheet-stage-top) 0%,
+    var(--color-sheet-stage-bottom) 100%
+  );
+  overflow: hidden;
+}
+
+.roof-sheet-tint {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1024 / 447;
+  background-color: var(--active-swatch-color, var(--sku-ral5012));
+  transition: background-color var(--dur-normal) var(--ease-out);
+}
+
+/* Hallmark Floor #7 & antislop R-39: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .interactive-card:hover,
+  .zoom-frame:hover img,
+  .btn-action:hover:not(:disabled),
+  .btn-action:active:not(:disabled) {
+    transform: none !important;
+  }
+}

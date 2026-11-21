@@ -1,0 +1,425 @@
+{
+  "meta": {
+    "siteTitle": "EGYPT CHINA FOR ASA | Engineered ASA Surface Films & Polymer Resins",
+    "siteDescription": "Sino-Egyptian industrial manufacturer of UV-stabilized ASA weather-resistant films, ASA resin granules, co-extrusion capstock, and corrugated roofing sheets in Sadat City, Egypt."
+  },
+  "common": {
+    "skipToMain": "Skip to main content",
+    "brandNameEn": "EGYPT CHINA FOR ASA",
+    "brandNameZh": "中埃ASA板材公司",
+    "brandMotto": "QUALITY PANELS : STRONGER FUTURES",
+    "switchLangLabel": "العربية",
+    "switchLangAria": "Switch language to Arabic",
+    "menuButton": "Menu",
+    "closeMenuButton": "Close menu",
+    "searchButton": "Search catalog",
+    "closeSearchButton": "Close search",
+    "searchPlaceholder": "Search ASA grades, ISO methods, co-extrusion thickness, or FAQ topics...",
+    "searchEmpty": "No matching ASA grades or technical topics found. Try searching for ISO 306, QUV, film, or granules.",
+    "searchReset": "Clear search filter",
+    "searchResultsLabel": "Catalog search results",
+    "locationLabel": "Sadat City, Monufia Governorate, Egypt (30°26'02.2\"N 30°36'45.7\"E)",
+    "openMapAction": "Open Sadat City location in Google Maps",
+    "emailPendingLabel": "info@egyptchina-asa.example [OFFICIAL_EMAIL_PENDING]",
+    "phonePendingLabel": "[OFFICIAL_PHONE_PENDING]",
+    "whatsappPendingLabel": "[OFFICIAL_WHATSAPP_PENDING]",
+    "wechatPendingLabel": "[OFFICIAL_WECHAT_PENDING]",
+    "yearPendingBadge": "Establishment Year: [YEAR_ESTABLISHED_PENDING]",
+    "clientAssetSlot": "[CLIENT_ASSET_SLOT]",
+    "clientMetricPending": "[CLIENT_METRIC_PENDING]",
+    "clientDataPending": "[CLIENT_DATA_PENDING]",
+    "requestQuoteBtn": "Request Sample Kit",
+    "sendEmailBtn": "Send Direct Email",
+    "viewDetailsBtn": "Inspect Grade Specs",
+    "viewAllProductsBtn": "View All ASA Products",
+    "downloadPdfBtn": "Download Official PDF",
+    "previewPdfBtn": "Open PDF in Browser",
+    "prevSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "backToArchive": "Return to full catalog"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About Us",
+    "services": "Services",
+    "faq": "FAQ",
+    "newsCases": "News & Cases",
+    "contact": "Contact Us",
+    "productsItems": {
+      "all": "All ASA Product Lines",
+      "films": "ASA Weather-Resistant Films",
+      "granules": "ASA Resin Granules",
+      "coextrusion": "ASA Co-Extrusion Material",
+      "sheets": "Corrugated & Roofing Sheets"
+    },
+    "aboutItems": {
+      "overview": "Company Overview",
+      "productionProcess": "6-Stage Production Line",
+      "factory": "Factory & Lab QC",
+      "qualification": "Production Qualification",
+      "downloads": "Technical Downloads"
+    },
+    "servicesItems": {
+      "packaging": "Packaging & Delivery",
+      "purchase": "Purchase Process (11 Steps)",
+      "support": "Technical Support",
+      "colorMatching": "Color Matching Service"
+    },
+    "newsCasesItems": {
+      "news": "Factory & Industry News",
+      "cases": "Industrial Application Cases"
+    }
+  },
+  "hero": {
+    "slide1": {
+      "label": "Slide 01: ASA Surface Films & Corrugated Sheets",
+      "headline": "Advanced ASA Solutions for Lasting Protection",
+      "summary": "We manufacture ASA films and sheets using modern production processes engineered for weather resistance, color stability, and durability across industrial and construction applications.",
+      "primaryCta": "Request Sample Kit",
+      "secondaryCta": "Browse ASA Grades",
+      "spec1Value": "1.07 g/cm³",
+      "spec1Label": "Specific Gravity (ISO 1183)",
+      "spec2Value": "95 to 102 °C",
+      "spec2Label": "Vicat Softening (ISO 306)",
+      "spec3Value": "ΔE < 1.5",
+      "spec3Label": "QUV 3000h Color Stability"
+    },
+    "slide2": {
+      "label": "Slide 02: Weather-Resistant ASA Granules & Masterbatch",
+      "headline": "UV-Stabilized ASA Resin Granules for Co-Extrusion and Injection",
+      "summary": "Saturated acrylate rubber terpolymer pellets engineered to bond directly with PVC and UPVC substrates at 0.20mm to 0.50mm capstock thickness without chalking or color shift.",
+      "primaryCta": "Inspect Granule Grades",
+      "secondaryCta": "Review Lab QC Methods",
+      "spec1Value": "15 to 25 g/10m",
+      "spec1Label": "Melt Flow Index (ISO 1133)",
+      "spec2Value": "0.20 to 0.50 mm",
+      "spec2Label": "Co-Extrusion Capstock Gauge",
+      "spec3Value": "42 to 48 MPa",
+      "spec3Label": "Tensile Yield (ISO 527)"
+    }
+  },
+  "capabilities": {
+    "sectionTitle": "Five Core ASA Performance Standards",
+    "sectionSummary": "Engineered polymer properties verifying outdoor durability, color retention, and multi-substrate protection in harsh climates.",
+    "items": [
+      {
+        "title": "UV Resistance",
+        "description": "Saturated acrylate elastomer replaces unsaturated butadiene rubber, preventing photo-oxidative chain breakdown under direct solar radiation.",
+        "metricLabel": "Accelerated Exposure",
+        "metricValue": "3000 Hours QUV (ASTM G154)"
+      },
+      {
+        "title": "Color Stability",
+        "description": "Heat-stable inorganic pigments and spectrophotometer calibration preserve gloss and shade uniformity without fading or chalking.",
+        "metricLabel": "Color Shift Tolerance",
+        "metricValue": "ΔE < 1.5 Verified"
+      },
+      {
+        "title": "Weather Resistance",
+        "description": "Maintains structural impact strength and thermal dimensional stability across high-heat desert summers and coastal humidity.",
+        "metricLabel": "Vicat Softening Point",
+        "metricValue": "95 to 102 °C (ISO 306)"
+      },
+      {
+        "title": "Corrosion Resistance",
+        "description": "Chemically inert against coastal salt mist, industrial acid and alkali vapors, and moisture where painted steel rusts and peels.",
+        "metricLabel": "Co-Extrusion Shield",
+        "metricValue": "0.20mm to 0.50mm Capstock"
+      },
+      {
+        "title": "Wide Range of Colors",
+        "description": "Supplied across 13 certified ERP codes covering 10 ASA Film (Top) exterior shades and 3 ASA Film (Bottom) backing shades plus custom RAL matching.",
+        "metricLabel": "Catalog Shade System",
+        "metricValue": "13 Certified Codes (Top & Bottom)"
+      }
+    ]
+  },
+  "partnership": {
+    "title": "Specialized ASA Film and Sheet Manufacturing",
+    "subtitle": "From China to Egypt: localized production of weather-resistant ASA solutions in Sadat City.",
+    "paragraph1": "We specialize in manufacturing ASA films and sheets using modern production technologies to deliver weather resistance, lasting color stability, and structural durability for industrial and construction projects across Egypt and the Middle East.",
+    "paragraph2": "Operating in Sadat City, Monufia Governorate, EGYPT CHINA FOR ASA pairs multi-layer extrusion and compounding control with continuous laboratory testing on every batch.",
+    "coreAdvantagesTitle": "Three Core Product Advantages",
+    "coreAdvantages": [
+      {
+        "code": "01",
+        "title": "High UV Resistance",
+        "detail": "Shields roofing panels, wall cladding, and window profiles from solar degradation and surface embrittlement."
+      },
+      {
+        "code": "02",
+        "title": "Color Stability & Fade Resistance",
+        "detail": "Formulated with inorganic pigments to hold ΔE below 1.5 across prolonged outdoor exposure."
+      },
+      {
+        "code": "03",
+        "title": "Exterior Protection & Durability",
+        "detail": "Impact resistance (12 to 18 kJ/m² Charpy) and zero rust in harsh industrial and coastal environments."
+      }
+    ],
+    "ctaInspect": "Inspect Factory & Lab Specs",
+    "videoBtnLabel": "Open Factory Video Showcase Slot",
+    "videoModalTitle": "Factory Production Line & Extrusion Video Slot",
+    "videoModalDesc": "Reserved media container for official Sadat City extrusion line footage. Provide the verified MP4 or stream asset to replace [COMPANY_VIDEO_SLOT].",
+    "videoCloseBtn": "Close video dialog"
+  },
+  "productionStages": {
+    "title": "Six-Stage ASA Manufacturing & Quality Process",
+    "subtitle": "Structured workflow from raw terpolymer compounding to laboratory verification and export-protected packaging, with dedicated visual slots for factory photography.",
+    "slotInstruction": "Reserved factory photography container. Supply verified plant image to populate this stage.",
+    "viewAllStagesBtn": "View All 6 Stages on Factory Page",
+    "stages": [
+      {
+        "step": "01",
+        "title": "Raw Material Preparation",
+        "slotCode": "[STAGE_01_RAW_MATERIAL_SLOT]",
+        "specLabel": "Formulation & Drying",
+        "specValue": "80 to 85 °C Dehumidified (3 to 4 hrs)",
+        "description": "Weighing virgin ASA terpolymer resin, saturated acrylate modifiers, UV stabilizers, and inorganic pigments, followed by moisture-controlled drying before feeding."
+      },
+      {
+        "step": "02",
+        "title": "Material Processing",
+        "slotCode": "[STAGE_02_MATERIAL_PROCESSING_SLOT]",
+        "specLabel": "Melt Homogenization",
+        "specValue": "MFI 15 to 25 g/10 min (ISO 1133)",
+        "description": "High-shear twin-screw compounding and melt filtration ensure uniform pigment dispersion and controlled polymer rheology free of unmelted gels."
+      },
+      {
+        "step": "03",
+        "title": "Extrusion Process",
+        "slotCode": "[STAGE_03_EXTRUSION_PROCESS_SLOT]",
+        "specLabel": "Die & Capstock Control",
+        "specValue": "185 to 215 °C Barrel / 0.20 to 0.50 mm",
+        "description": "Precision flat-die and multi-layer feedblock extrusion forms uniform ASA surface films or co-extruded capstock fused directly onto UPVC cores."
+      },
+      {
+        "step": "04",
+        "title": "Surface Treatment",
+        "slotCode": "[STAGE_04_SURFACE_TREATMENT_SLOT]",
+        "specLabel": "Calender & Texture",
+        "specValue": "High-Gloss, Satin Matte, or Embossed",
+        "description": "Temperature-regulated chrome and embossing rollers impart consistent surface gloss, fine architectural pebble texture, or low-glare matte finish."
+      },
+      {
+        "step": "05",
+        "title": "Quality Inspection",
+        "slotCode": "[STAGE_05_QUALITY_INSPECTION_SLOT]",
+        "specLabel": "ISO & ASTM Verification",
+        "specValue": "ISO 306 Vicat / ASTM G154 ΔE < 1.5",
+        "description": "Every lot undergoes thickness micrometer checks, spectrophotometer color validation, Charpy impact testing (ISO 179), and QUV weathering qualification."
+      },
+      {
+        "step": "06",
+        "title": "Final Product Packaging",
+        "slotCode": "[STAGE_06_PACKAGING_SLOT]",
+        "specLabel": "Protection & Dispatch",
+        "specValue": "Moisture, Dust & Heat Shielded",
+        "description": "Film rolls, 25 kg resin bags, and corrugated panels are wrapped in sealed barrier layers with batch traceability labels for safe warehouse storage and transport."
+      }
+    ]
+  },
+  "swatchExplorer": {
+    "title": "Interactive 13-SKU ASA Film Color Catalog & Live Roof Sheet Previewer",
+    "subtitle": "Filter across 10 ASA Film (Top) exterior shades and 3 ASA Film (Bottom) backing grades, preview each shade live on a corrugated roof sheet, and bundle sample codes for instant WhatsApp inquiry.",
+    "activeCodeLabel": "Catalogue Grade Code",
+    "activeFinishLabel": "Surface Texture & Gloss",
+    "activeSolarLabel": "UV & Thermal Stability",
+    "activeSubstrateLabel": "Compatible Substrate",
+    "swatches": [
+      {
+        "id": "black",
+        "name": "Charcoal Black",
+        "code": "EC-SW-01 (Black)",
+        "finish": "Embossed Matte & High-Gloss Options",
+        "solar": "99.4% UV Opacity, ΔE < 1.2 after 3000h QUV",
+        "substrate": "UPVC Corrugated Roofing & Automotive Trim",
+        "description": "High-opacity carbon and infrared-stable pigment formulation engineered for industrial Spanish tiles, corrugated warehouse sheets, and exterior automotive cowls.",
+        "image": "/assets/opt/asa-black-corrugated.webp"
+      },
+      {
+        "id": "orange",
+        "name": "Terracotta Orange",
+        "code": "EC-SW-02 (Orange)",
+        "finish": "Fine Pebble Architectural Grain",
+        "solar": "High Infrared Reflectance, ΔE < 1.4",
+        "substrate": "PVC Architectural Roof Tiles & Ridge Caps",
+        "description": "Formulated for residential and coastal resort roofing profiles where traditional clay-tile appearance must withstand salt spray and intense UV exposure.",
+        "image": "/assets/opt/asa-color-jars.webp"
+      },
+      {
+        "id": "red",
+        "name": "Imperial Crimson Red",
+        "code": "EC-SW-03 (Red)",
+        "finish": "Glossy Weather-Shield Capstock",
+        "solar": "Inorganic Red Chromophore, ΔE < 1.2",
+        "substrate": "Co-Extruded UPVC Sheets & Commercial Facades",
+        "description": "Our signature red ASA sheet and pellet grade utilizing heat-stable inorganic pigments that resist chalking and fading in desert industrial zones.",
+        "image": "/assets/opt/asa-red-sheet.webp"
+      },
+      {
+        "id": "blue",
+        "name": "Industrial Cobalt Blue",
+        "code": "EC-SW-04 (Blue)",
+        "finish": "Smooth Anti-Dust Industrial Finish",
+        "solar": "Acid & Alkali Vapor Resistant, ΔE < 1.3",
+        "substrate": "Steel-Replacement Factory Cladding & Warehouses",
+        "description": "Widely specified for logistics hubs, chemical plants, and manufacturing halls requiring corrosion-proof roofing that does not rust or peel.",
+        "image": "/assets/opt/asa-color-jars.webp"
+      },
+      {
+        "id": "grey",
+        "name": "Anthracite Dark Grey",
+        "code": "EC-SW-05 (Dark Grey)",
+        "finish": "Low-Glare Architectural Satin",
+        "solar": "Dimensional Stability up to 102 °C Vicat",
+        "substrate": "Window Profiles, Wall Cladding & HVAC Enclosures",
+        "description": "Designed for modern window profile lamination, exterior wall siding, and solar equipment housings requiring neutral architectural aesthetics.",
+        "image": "/assets/opt/asa-black-corrugated.webp"
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "title": "Why Industrial Manufacturers Specify Our ASA",
+    "subtitle": "Built around polymer chemistry, laboratory verification, and consistent extrusion thickness.",
+    "cards": [
+      {
+        "step": "01",
+        "title": "R&D & Formulation Control",
+        "description": "Custom-compounded acrylonitrile-styrene-acrylate ratios tuned for smooth melt flow (15 to 25 g/10 min) and zero die-lip buildup during continuous co-extrusion.",
+        "specTag": "ISO 1133 Melt Flow Verified",
+        "image": "/assets/opt/asa-color-jars.webp",
+        "imageAlt": "Seven glass laboratory jars containing colored ASA resin granules"
+      },
+      {
+        "step": "02",
+        "title": "Core Weatherability Technology",
+        "description": "Saturated acrylate rubber disperses impact energy while resisting UV bond cleavage, keeping ΔE below 1.5 after 3000 hours of ASTM G154 accelerated weathering.",
+        "specTag": "ASTM G154 QUV 3000h",
+        "image": "/assets/opt/asa-black-corrugated.webp",
+        "imageAlt": "Black corrugated ASA roofing sheet with raw polymer pellets"
+      },
+      {
+        "step": "03",
+        "title": "Consistent Surface Finish & Adhesion",
+        "description": "Uniform 0.20mm to 0.50mm film and capstock thickness bonds directly to PVC and UPVC cores without delamination, blisters, or surface pinhole defects.",
+        "specTag": "0.20mm to 0.50mm Gauge Control",
+        "image": "/assets/opt/asa-red-sheet.webp",
+        "imageAlt": "Red textured ASA corrugated sheet with matching granules"
+      }
+    ]
+  },
+  "workflow": {
+    "title": "Sample-to-Application Engineering Workflow",
+    "subtitle": "Verify thermal, adhesive, and color compatibility on your own production line before bulk supply.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Specify Requirements",
+        "detail": "Share your target application, base substrate (PVC, UPVC, ABS, or metal lamination), required thickness, width, and RAL or catalogue color code."
+      },
+      {
+        "number": "02",
+        "title": "Review Physical Sample",
+        "detail": "We dispatch physical ASA film rolls, resin granule batches, or corrugated sheet cut-samples from Sadat City for visual and lab inspection."
+      },
+      {
+        "number": "03",
+        "title": "Production Line Compatibility Test",
+        "detail": "Run extrusion, thermoforming, or lamination trials on your machinery to verify melt temperature (185 to 215 °C) and peel strength."
+      },
+      {
+        "number": "04",
+        "title": "Confirm Order & Scheduled Supply",
+        "detail": "Lock batch specifications, quality inspection criteria, and export-protected packaging for scheduled factory delivery."
+      }
+    ],
+    "criteriaTitle": "Five Key Selection Parameters",
+    "criteriaList": [
+      {
+        "label": "01. End-Use Environment",
+        "value": "Roofing tiles, exterior wall cladding, window profiles, automotive trim, or outdoor enclosures."
+      },
+      {
+        "label": "02. Base Substrate Material",
+        "value": "Rigid UPVC, foamed PVC, ABS, or steel composite requiring thermal expansion matching."
+      },
+      {
+        "label": "03. Thickness & Roll Width",
+        "value": "0.15mm to 0.50mm for films and capstock, or 1.50mm to 3.50mm for solid and corrugated sheets."
+      },
+      {
+        "label": "04. Color & Gloss Level",
+        "value": "High-gloss, satin matte, or embossed surface textures matched to RAL or custom masterbatch."
+      },
+      {
+        "label": "05. Adhesive & Thermal Window",
+        "value": "Direct thermal co-extrusion bonding or hot-melt lamination compatibility at 185 to 225 °C."
+      }
+    ],
+    "fullProcessLink": "Inspect Complete 11-Step Purchase Workflow"
+  },
+  "newsPreview": {
+    "title": "Factory Updates & Industrial Project Cases",
+    "subtitle": "Reserved editorial slots for verified Sadat City factory dispatches and customer installation case studies.",
+    "viewAllNews": "Browse News Archive",
+    "viewAllCases": "Browse Project Cases"
+  },
+  "inquiry": {
+    "title": "Direct Technical Inquiry & Sample Request",
+    "subtitle": "Submit your substrate parameters, required ASA grade, and target quantity. Our engineering and sales team in Sadat City will respond with technical data sheets and sample dispatch options.",
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "companyLabel": "Company / Factory Name",
+    "companyPlaceholder": "Enter your organization name",
+    "emailLabel": "Business Email Address",
+    "emailPlaceholder": "name@company.example",
+    "phoneLabel": "Phone / WhatsApp Number",
+    "phonePlaceholder": "+20 1X XXXX XXXX",
+    "categoryLabel": "Product Category of Interest",
+    "categoryOptions": {
+      "select": "Select an ASA product category",
+      "films": "ASA Weather-Resistant Films",
+      "granules": "ASA Resin Granules (Extrusion & Injection)",
+      "coextrusion": "ASA Co-Extrusion Capstock Material",
+      "sheets": "Corrugated & Roofing ASA Sheets",
+      "custom": "Custom Color Matching & Masterbatch"
+    },
+    "messageLabel": "Technical Specifications & Sample Details",
+    "messagePlaceholder": "Specify required thickness (mm), width, color code, substrate (e.g., UPVC roof tile), and estimated monthly tonnage...",
+    "submitBtn": "Submit Sample & Quote Inquiry",
+    "submittingBtn": "Transmitting Inquiry...",
+    "successTitle": "Technical Inquiry Recorded",
+    "successBody": "Your sample and specification request has been logged with reference ID",
+    "resetFormBtn": "Submit Another Inquiry",
+    "errorTitle": "Please correct the highlighted fields before submitting.",
+    "validation": {
+      "fullNameMin": "Please enter your full name (at least 2 characters).",
+      "companyMin": "Please enter your company or factory name.",
+      "emailInvalid": "Please enter a valid business email address.",
+      "phoneMin": "Please provide a valid phone or WhatsApp contact number (at least 7 digits).",
+      "categoryRequired": "Please select a product category.",
+      "messageMin": "Please include your technical requirements or sample specifications (at least 15 characters)."
+    }
+  },
+  "footer": {
+    "partnershipSummary": "Sino-Egyptian industrial partnership manufacturing UV-resistant ASA surface films, polymer granules, co-extrusion capstock, and corrugated roofing panels in Sadat City, Egypt.",
+    "socialTitle": "Official Social Channels",
+    "socialPending": "Coming soon",
+    "socialChannels": {
+      "facebook": "Facebook",
+      "tiktok": "TikTok",
+      "instagram": "Instagram",
+      "whatsapp": "WhatsApp"
+    },
+    "featuredProductsTitle": "Featured ASA Product Lines",
+    "quickLinksTitle": "Corporate & Technical Pages",
+    "contactColTitle": "Sadat City Industrial Headquarters",
+    "addressTitle": "Factory & Sales Location",
+    "phoneTitle": "Direct Sales Phone",
+    "whatsappTitle": "WhatsApp Technical Desk",
+    "emailTitle": "Official Email",
+    "copyright": "EGYPT CHINA FOR ASA (中埃ASA板材公司). All specifications verified against ISO & ASTM testing standards."
+  }
+}

@@ -1,0 +1,461 @@
+import React from "react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { getDictionary, isValidLocale } from "@/i18n/config";
+import { ProductionStagesSection } from "@/components/ProductionStagesSection";
+import { RiverRibbon } from "@/components/RiverRibbon";
+
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function AboutPage({ params }: PageProps) {
+  const { locale } = await params;
+
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
+
+  const dict = getDictionary(locale);
+
+  const labEquipmentList = [
+    {
+      code: "LAB-01",
+      name:
+        locale === "ar"
+          ? "جهاز القياس الطيفي للألوان واللمعان (Spectrophotometer)"
+          : "Spectrophotometer & 60° Gloss Meter",
+      standard: "ASTM D2244 / ISO 2813",
+      purpose:
+        locale === "ar"
+          ? "قياس إحداثيات اللون (L*a*b*) والتحقق من بقاء الفارق اللوني ΔE أقل من 1.5 بين التشغيلات."
+          : "Measures L*a*b* coordinates and verifies batch-to-batch color tolerance within ΔE < 1.5.",
+    },
+    {
+      code: "LAB-02",
+      name:
+        locale === "ar"
+          ? "جهاز قياس معامل تدفق الذوبان (Melt Flow Indexer)"
+          : "Melt Flow Rate Indexer (MFI)",
+      standard: "ISO 1133 (220 °C / 10 kg)",
+      purpose:
+        locale === "ar"
+          ? "فحص سيولة ولزوجة المصهور (15 إلى 25 جم/10 دقائق) لضمان انتظام البثق المشترك والحقن."
+          : "Verifies polymer melt viscosity (15 to 25 g/10 min) for consistent co-extrusion die flow.",
+    },
+    {
+      code: "LAB-03",
+      name:
+        locale === "ar"
+          ? "جهاز اختبار درجة حرارة التليين فيكات (Vicat Tester)"
+          : "Vicat Softening Temperature Apparatus",
+      standard: "ISO 306 (Method B/50)",
+      purpose:
+        locale === "ar"
+          ? "التأكد من تحمل المادة لدرجات الحرارة المرتفعة (95 إلى 102 °C) دون تشوه تحت أشعة الشمس."
+          : "Confirms thermal distortion stability between 95 and 102 °C for desert roofing exposures.",
+    },
+    {
+      code: "LAB-04",
+      name:
+        locale === "ar"
+          ? "بندول اختبار صدمات شاربي المسننة (Charpy Impact)"
+          : "Charpy Notched Impact Pendulum",
+      standard: "ISO 179 (23 °C)",
+      purpose:
+        locale === "ar"
+          ? "قياس مقاومة الصدمات الميكانيكية (12 إلى 18 كيلوجول/م²) لضمان متانة الألواح أثناء التركيب."
+          : "Tests impact energy absorption (12 to 18 kJ/m²) against hail and mechanical load.",
+    },
+    {
+      code: "LAB-05",
+      name:
+        locale === "ar"
+          ? "غرفة التعتيق المتسارع بالأشعة فوق البنفسجية (QUV Chamber)"
+          : "QUV Accelerated Weathering Chamber",
+      standard: "ASTM G154 (3000 Hours)",
+      purpose:
+        locale === "ar"
+          ? "تعريض العينات لدورات مكثفة من الأشعة فوق البنفسجية والتكثيف الحراري للتحقق من عدم الاصفرار."
+          : "Simulates multi-year solar UV and moisture cycles to certify ΔE < 1.5 retention at 3000 hours.",
+    },
+  ];
+
+  const downloadsRows = [
+    {
+      id: "DOC-01",
+      title:
+        locale === "ar"
+          ? "الكتالوج الفني الرسمي لشركة مصر الصين لـ ASA (PDF)"
+          : "EGYPT CHINA FOR ASA Official Technical Brochure (PDF)",
+      format: "PDF (2.05 MB)",
+      status: locale === "ar" ? "متاح للتحميل المباشر" : "Verified & Ready",
+      href: "/assets/Egypt_China_ASA_Brochure.pdf",
+      isAvailable: true,
+    },
+    {
+      id: "DOC-02",
+      title:
+        locale === "ar"
+          ? "نشرة البيانات الفنية لأفلام البثق المشترك [ASA_FILMS_TDS_PDF]"
+          : "ASA Weather-Resistant Films Technical Data Sheet [ASA_FILMS_TDS_PDF]",
+      format: "PDF [CLIENT_DATA_PENDING]",
+      status:
+        locale === "ar"
+          ? "[يُضاف بعد اعتماد قسم الجودة]"
+          : "[Pending QC Release]",
+      href: "",
+      isAvailable: false,
+    },
+    {
+      id: "DOC-03",
+      title:
+        locale === "ar"
+          ? "بطاقة مطابقة الألوان القياسية والماسترباتش [RAL_COLOR_CARD_PDF]"
+          : "Standard Masterbatch & Swatch Reference Card [RAL_COLOR_CARD_PDF]",
+      format: "PDF [CLIENT_DATA_PENDING]",
+      status:
+        locale === "ar"
+          ? "[يُضاف بعد اعتماد قسم الجودة]"
+          : "[Pending QC Release]",
+      href: "",
+      isAvailable: false,
+    },
+  ];
+
+  return (
+    <div className="flex flex-col">
+      {/* Header Band */}
+      <section className="bg-sino-fretwork text-[var(--color-on-navy)] border-b-2 border-[var(--color-gold)]">
+        <div className="catalog-container py-10 lg:py-14 flex flex-col gap-3">
+          <h1
+            className="text-[var(--color-gold-bright)] font-bold"
+            style={{ fontSize: "var(--text-3xl)" }}
+          >
+            {dict.nav.about}
+          </h1>
+          <p className="text-sm sm:text-base text-[var(--color-on-navy-muted)] max-w-3xl">
+            {dict.partnership.subtitle}
+          </p>
+        </div>
+        <RiverRibbon />
+      </section>
+
+      {/* Section 1: Company Overview (#overview) */}
+      <section
+        id="overview"
+        className="py-14 lg:py-20 bg-ivory-watermark border-b border-[var(--color-sand-border)] scroll-mt-20"
+      >
+        <div className="catalog-container grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-6 flex flex-col gap-4">
+            <span className="inline-flex self-start px-3 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy)] text-[var(--color-gold-bright)] text-xs font-semibold border border-[var(--color-gold)]">
+              {dict.common.yearPendingBadge}
+            </span>
+            <h2
+              className="text-[var(--color-navy)] font-bold"
+              style={{ fontSize: "var(--text-2xl)" }}
+            >
+              {dict.partnership.title}
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--color-charcoal)] leading-relaxed">
+              {dict.partnership.paragraph1}
+            </p>
+            <p className="text-sm sm:text-base text-[var(--color-charcoal)] leading-relaxed">
+              {dict.partnership.paragraph2}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div className="rounded-[var(--radius-sm)] border border-[var(--color-sand-border)] bg-[var(--color-sand)] p-4">
+                <span className="text-xs text-[var(--color-charcoal)]">
+                  {locale === "ar" ? "الموقع الصناعي" : "Manufacturing Site"}
+                </span>
+                <strong className="block text-sm font-bold text-[var(--color-navy)] mt-0.5">
+                  {dict.common.locationLabel}
+                </strong>
+              </div>
+              <div className="rounded-[var(--radius-sm)] border border-[var(--color-sand-border)] bg-[var(--color-sand)] p-4">
+                <span className="text-xs text-[var(--color-charcoal)]">
+                  {locale === "ar"
+                    ? "الطاقة الإنتاجية والمساحة"
+                    : "Plant Capacity & Area"}
+                </span>
+                <strong
+                  dir="ltr"
+                  className="block font-mono text-sm font-bold text-[var(--color-crimson)] mt-0.5"
+                >
+                  {dict.common.clientMetricPending}
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="rounded-[var(--radius-md)] border border-[var(--color-gold)] bg-[var(--color-navy)] p-4 text-[var(--color-on-navy)] sm:col-span-2 flex items-center justify-center">
+              <img
+                src="/assets/opt/factory-facade.webp"
+                width={296}
+                height={162}
+                loading="lazy"
+                decoding="async"
+                alt={dict.common.brandNameEn}
+                className="w-full max-w-[380px] aspect-[296/162] object-cover rounded-[var(--radius-sm)]"
+              />
+            </div>
+            <div className="rounded-[var(--radius-md)] border border-[var(--color-sand-border)] bg-[var(--color-ivory-elevated)] p-3">
+              <img
+                src="/assets/opt/brand-board-full.webp"
+                width={420}
+                height={280}
+                loading="lazy"
+                decoding="async"
+                alt={
+                  locale === "ar"
+                    ? "لوحة الهوية البصرية الرسمية لشركة مصر الصين لـ ASA"
+                    : "Official Brand Identity Board of EGYPT CHINA FOR ASA"
+                }
+                className="w-full h-44 object-cover rounded-[var(--radius-sm)]"
+              />
+            </div>
+            <div className="rounded-[var(--radius-md)] border border-[var(--color-sand-border)] bg-[var(--color-ivory-elevated)] p-3">
+              <img
+                src="/assets/opt/logo-lockup.webp"
+                width={420}
+                height={280}
+                loading="lazy"
+                decoding="async"
+                alt={dict.common.brandNameEn}
+                className="w-full h-44 object-contain bg-[var(--color-ivory)] rounded-[var(--radius-sm)] p-2"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 1.5: 6-Stage Manufacturing & Quality Pipeline (#production-process) */}
+      <section
+        id="production-process"
+        className="py-14 lg:py-20 bg-[var(--color-ivory)] border-b border-[var(--color-sand-border)] scroll-mt-20"
+      >
+        <div className="catalog-container">
+          <ProductionStagesSection locale={locale} dict={dict} mode="grid" />
+        </div>
+      </section>
+
+      {/* Section 2: Factory & Lab QC (#factory) */}
+      <section
+        id="factory"
+        className="py-14 lg:py-20 bg-[var(--color-sand)] border-b border-[var(--color-sand-border)] scroll-mt-20"
+      >
+        <div className="catalog-container flex flex-col gap-8">
+          <div>
+            <h2
+              className="text-[var(--color-navy)] font-bold"
+              style={{ fontSize: "var(--text-2xl)" }}
+            >
+              {dict.nav.aboutItems.factory}
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--color-charcoal)] mt-1">
+              {locale === "ar"
+                ? "معدات الفحص المعملي ومعايير الرقابة على الجودة لكل تشغيلة من حبيبات وأفلام وألواح ASA:"
+                : "Laboratory testing instruments and batch verification protocols governing every ASA production lot:"}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {labEquipmentList.map((eq) => (
+              <article
+                key={eq.code}
+                className="rounded-[var(--radius-md)] border border-[var(--color-sand-border)] bg-[var(--color-ivory-elevated)] p-6 flex flex-col justify-between gap-4"
+              >
+                <div className="flex flex-col gap-2.5">
+                  <div className="flex items-center justify-between">
+                    <span
+                      dir="ltr"
+                      className="font-mono text-xs font-bold px-2.5 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy)] text-[var(--color-gold-bright)]"
+                    >
+                      {eq.code}
+                    </span>
+                    <span
+                      dir="ltr"
+                      className="font-mono text-xs font-semibold text-[var(--color-crimson)]"
+                    >
+                      {eq.standard}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-bold text-[var(--color-navy)]">
+                    {eq.name}
+                  </h3>
+                  <p className="text-sm text-[var(--color-charcoal)] leading-relaxed">
+                    {eq.purpose}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-[var(--color-sand-border)] text-xs font-semibold text-[var(--color-charcoal)]">
+                  [LAB_INSTRUMENT_PHOTO_SLOT]
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Production Qualification & Partners (#qualification) */}
+      <section
+        id="qualification"
+        className="py-14 lg:py-20 bg-[var(--color-ivory)] border-b border-[var(--color-sand-border)] scroll-mt-20"
+      >
+        <div className="catalog-container flex flex-col gap-8">
+          <div>
+            <h2
+              className="text-[var(--color-navy)] font-bold"
+              style={{ fontSize: "var(--text-2xl)" }}
+            >
+              {dict.nav.aboutItems.qualification}
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--color-charcoal)] mt-1">
+              {locale === "ar"
+                ? "مساحات مخصصة لرفع نسخ شهادات الجودة واعتمادات الفحص المعملي الرسمية فور إصدارها (دون ادعاءات غير موثقة)."
+                : "Reserved containers for official quality management certificates and third-party laboratory test reports."}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[1, 2, 3].map((slotNum) => (
+              <div
+                key={slotNum}
+                className="rounded-[var(--radius-md)] border-2 border-dashed border-[var(--color-sand-border)] bg-[var(--color-ivory-elevated)] p-6 flex flex-col items-center justify-center text-center gap-3 min-h-[220px]"
+              >
+                <span
+                  dir="ltr"
+                  className="px-3 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy)] text-[var(--color-gold-bright)] text-xs font-bold border border-[var(--color-gold)]"
+                >
+                  [CERT_UPLOAD_SLOT_0{slotNum}]
+                </span>
+                <strong className="text-sm font-bold text-[var(--color-navy)]">
+                  {locale === "ar"
+                    ? `شهادة اعتماد وفحص معملي رقم 0${slotNum}`
+                    : `Official Lab & Production Certificate Slot 0${slotNum}`}
+                </strong>
+                <p className="text-xs text-[var(--color-charcoal)] max-w-xs">
+                  {locale === "ar"
+                    ? "تُرفع النسخة الممسوحة ضوئياً هنا بعد مراجعة واعتماد إدارة الجودة."
+                    : "Awaiting verified PDF/image scan from EGYPT CHINA FOR ASA quality assurance."}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Technical Downloads Table (#downloads) */}
+      <section
+        id="downloads"
+        className="py-14 lg:py-20 bg-sino-fretwork text-[var(--color-on-navy)] scroll-mt-20"
+      >
+        <div className="catalog-container flex flex-col gap-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <h2
+                className="text-[var(--color-gold-bright)] font-bold"
+                style={{ fontSize: "var(--text-2xl)" }}
+              >
+                {dict.nav.aboutItems.downloads}
+              </h2>
+              <p className="text-sm sm:text-base text-[var(--color-on-navy-muted)] mt-1">
+                {locale === "ar"
+                  ? "حمّل الكتالوج الفني الرسمي لشركة مصر الصين لـ ASA بصيغة PDF أو استعرض نشرات المواصفات:"
+                  : "Download the official EGYPT CHINA FOR ASA Technical Brochure PDF and specification sheets:"}
+              </p>
+            </div>
+
+            <Link
+              href={`/${locale}/contact#inquiry`}
+              className="btn-action self-start md:self-auto bg-[var(--color-crimson)] text-[var(--color-on-navy)] border border-[var(--color-gold)]"
+            >
+              {dict.common.requestQuoteBtn}
+            </Link>
+          </div>
+
+          <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-gold)] bg-[var(--color-navy-deep)]">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b border-[var(--color-gold)] bg-[var(--color-navy)] text-[var(--color-gold-bright)]">
+                  <th scope="col" className="p-4 text-start font-bold">
+                    ID
+                  </th>
+                  <th scope="col" className="p-4 text-start font-bold">
+                    {locale === "ar" ? "اسم الوثيقة الفنية" : "Document Title"}
+                  </th>
+                  <th scope="col" className="p-4 text-start font-bold">
+                    {locale === "ar" ? "الصيغة والحجم" : "Format & Size"}
+                  </th>
+                  <th scope="col" className="p-4 text-start font-bold">
+                    {locale === "ar" ? "الحالة" : "Status"}
+                  </th>
+                  <th scope="col" className="p-4 text-start font-bold">
+                    {locale === "ar" ? "الإجراء" : "Action"}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {downloadsRows.map((row) => (
+                  <tr
+                    key={row.id}
+                    className="border-b border-[var(--color-navy-border)] last:border-b-0"
+                  >
+                    <td
+                      dir="ltr"
+                      className="p-4 font-mono text-xs text-[var(--color-gold-bright)]"
+                    >
+                      {row.id}
+                    </td>
+                    <td className="p-4 font-semibold text-[var(--color-on-navy)]">
+                      {row.title}
+                    </td>
+                    <td
+                      dir="ltr"
+                      className="p-4 font-mono text-xs text-[var(--color-on-navy-muted)]"
+                    >
+                      {row.format}
+                    </td>
+                    <td className="p-4 text-xs text-[var(--color-gold-bright)]">
+                      {row.status}
+                    </td>
+                    <td className="p-4">
+                      {row.isAvailable ? (
+                        <div className="flex flex-wrap items-center gap-2">
+                          <a
+                            href={row.href}
+                            download
+                            className="min-h-[44px] inline-flex items-center px-3.5 py-1.5 rounded-[var(--radius-xs)] bg-[var(--color-gold)] text-[var(--color-navy-deep)] font-bold text-xs hover:bg-[var(--color-gold-bright)]"
+                          >
+                            {dict.common.downloadPdfBtn}
+                          </a>
+                          <a
+                            href={row.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="min-h-[44px] inline-flex items-center px-3.5 py-1.5 rounded-[var(--radius-xs)] border border-[var(--color-gold)] text-[var(--color-gold-bright)] font-semibold text-xs hover:bg-[var(--color-navy)]"
+                          >
+                            {dict.common.previewPdfBtn}
+                          </a>
+                        </div>
+                      ) : (
+                        <Link
+                          href={`/${locale}/contact#inquiry`}
+                          className="min-h-[44px] inline-flex items-center px-3.5 py-1.5 rounded-[var(--radius-xs)] border border-[var(--color-navy-border)] bg-[var(--color-navy)] text-xs text-[var(--color-on-navy-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-bright)]"
+                        >
+                          {dict.common.requestQuoteBtn}
+                        </Link>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

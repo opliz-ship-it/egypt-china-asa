@@ -1,0 +1,114 @@
+/* Hallmark · shape: Industrial Specification & Catalog Dossier · genre: editorial · theme: custom-brand · job: buy · idea: "Bilingual Sino-Egyptian industrial polymer and ASA surface film catalog engineered with strict Brand Identity Board palette and verified ISO/ASTM metrics" · vibe: "architectural deep navy ivory gold industrial authority"
+ * paper: #f5f2ea · accent: #a6191e · display: Alexandria / IBM Plex Sans · body: IBM Plex Sans Arabic / IBM Plex Sans
+ * hero: User-controlled 2-slide architectural showcase on #08354d with Sino-Egyptian fretwork, River twin-ribbon motif, circular seal, and corrugated ASA specimen · nav: static top utility band + sticky single-row 7-destination bilingual header with keyboard dropdowns and live search overlay · footer: 3-column Deep Blue architectural band with Sino-Egyptian heritage banner · imagery: optimized WebP photographs · signature: interactive 5-swatch catalogue texture and masterbatch explorer
+ * axes: light/geometric-sans/warm · posture: editorial · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · weakest: R, enforced sentence-case untracked labels, zero pill eyebrows above H1, zero em/en dashes, and strict CSS logical properties for RTL/LTR parity */
+
+:root {
+  color-scheme: light;
+
+  /* Brand Identity Board Core Palette */
+  --color-navy: #08354d;
+  --color-navy-deep: #072136;
+  --color-navy-surface: #0c425f;
+  --color-navy-border: #1d5775;
+  --color-ivory: #f5f2ea;
+  --color-ivory-elevated: #fbf9f4;
+  --color-sand: #eae3d2;
+  --color-sand-border: #c8b696;
+  --color-sand-muted: #dcd2bc;
+  --color-gold: #c59b48;
+  --color-gold-bright: #e0bc6b;
+  --color-gold-dark: #7d5b14;
+  --color-crimson: #a6191e;
+  --color-crimson-hover: #821216;
+  --color-ink: #14222e;
+  --color-charcoal: #44484d;
+  --color-on-navy: #f5f2ea;
+  --color-on-navy-muted: #d6d0c2;
+
+  /* Semantic Feedback Tokens (WCAG AA 4.5:1+ verified) */
+  --color-error: #8f161b;
+  --color-error-bg: #f9e6e7;
+  --color-error-border: #d4878a;
+  --color-success: #13532e;
+  --color-success-bg: #e5f3ea;
+  --color-success-border: #7ebc97;
+  --color-overlay: rgba(7, 33, 54, 0.76);
+
+  /* Catalogue 5-Swatch Texture & Finish Strip Tokens */
+  --swatch-black: #1c2024;
+  --swatch-orange: #c45114;
+  --swatch-red: #9b1f23;
+  --swatch-blue: #154c73;
+  --swatch-grey: #454b52;
+
+  /* 13 Official ERP ASA Film SKU Color Tokens (Top & Bottom Layers) */
+  --sku-cmg96279: #1e824c;
+  --sku-cma45050: #f3f4f6;
+  --sku-cmo98501: #eab308;
+  --sku-ral5012: #0089b6;
+  --sku-cmb97508: #0f3b5f;
+  --sku-cmo96398: #a6191e;
+  --sku-cma96681: #43474d;
+  --sku-cmo96375: #c2410c;
+  --sku-ral7045: #8d949a;
+  --sku-ral1014: #dfcea1;
+  --sku-ral6019: #b7d9b1;
+  --sku-cmo96275: #ea580c;
+  --sku-ral9016: #f7f8f6;
+
+  /* Interactive Previewer & WhatsApp Action Tokens */
+  --color-sheet-stage-top: #f8f5ec;
+  --color-sheet-stage-bottom: #e5dec9;
+  --color-whatsapp: #146c38;
+  --color-whatsapp-hover: #0e522a;
+
+  /* Typography Families (injected via next/font/google variables on html) */
+  --font-sans-ar: var(--font-ibm-ar), var(--font-alexandria), system-ui, sans-serif;
+  --font-display-ar: var(--font-alexandria), var(--font-ibm-ar), system-ui, sans-serif;
+  --font-sans-en: var(--font-ibm-en), system-ui, sans-serif;
+  --font-wordmark: var(--font-cinzel), Georgia, serif;
+
+  /* Fluid Type Scale (clamp for 320px -> 1440px) */
+  --text-xs: clamp(0.78rem, 0.15vw + 0.74rem, 0.84rem);
+  --text-sm: clamp(0.875rem, 0.2vw + 0.82rem, 0.9375rem);
+  --text-base: clamp(1rem, 0.22vw + 0.94rem, 1.0625rem);
+  --text-lg: clamp(1.125rem, 0.35vw + 1.02rem, 1.25rem);
+  --text-xl: clamp(1.25rem, 0.55vw + 1.1rem, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.1vw + 1.2rem, 2rem);
+  --text-3xl: clamp(1.75rem, 1.8vw + 1.3rem, 2.5rem);
+  --text-hero: clamp(1.85rem, 2.3vw + 1.25rem, 2.85rem);
+
+  /* Spacing & Layout Tokens */
+  --container-max: 1380px;
+  --gutter-mobile: 1.25rem;
+  --gutter-tablet: 2rem;
+  --gutter-desktop: 3rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-section: clamp(3.25rem, 5vw + 1.5rem, 5.5rem);
+
+  /* Radii & Borders (R-11 hierarchy: structured architectural corners, never all-pill) */
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+
+  /* Selective Elevation Shadows (R-12: used only on floating dropdowns, modal, and elevated inquiry card) */
+  --shadow-subtle: 0 2px 8px rgba(7, 33, 54, 0.06);
+  --shadow-elevated: 0 12px 32px rgba(7, 33, 54, 0.12);
+  --shadow-dropdown: 0 16px 40px rgba(7, 33, 54, 0.22);
+
+  /* Motion Timing (MOTION 1: crisp micro-interactions, never transition: all) */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 140ms;
+  --dur-normal: 220ms;
+}
