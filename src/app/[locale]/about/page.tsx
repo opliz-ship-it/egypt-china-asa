@@ -81,13 +81,21 @@ export default async function AboutPage({ params }: PageProps) {
     },
   ];
 
-  const downloadsRows = [
+  const downloadsRows: Array<{
+    id: string;
+    title: string;
+    format: string;
+    status: string;
+    href: string;
+    isAvailable: boolean;
+    downloadLabel?: string;
+  }> = [
     {
       id: "DOC-01",
       title:
         locale === "ar"
           ? "الكتالوج الفني الرسمي لشركة مصر الصين لـ ASA (PDF)"
-          : "EGYPT CHINA FOR ASA Official Technical Brochure (PDF)",
+          : "EGYPT CHINA FOR ASA Official Technical Catalog (PDF)",
       format: "PDF (2.05 MB)",
       status: locale === "ar" ? "متاح للتحميل المباشر" : "Verified & Ready",
       href: "/assets/Egypt_China_ASA_Brochure.pdf",
@@ -97,15 +105,17 @@ export default async function AboutPage({ params }: PageProps) {
       id: "DOC-02",
       title:
         locale === "ar"
-          ? "نشرة البيانات الفنية لأفلام البثق المشترك [ASA_FILMS_TDS_PDF]"
-          : "ASA Weather-Resistant Films Technical Data Sheet [ASA_FILMS_TDS_PDF]",
-      format: "PDF [CLIENT_DATA_PENDING]",
-      status:
+          ? "البروشور التعريفي الرسمي لشركة مصر الصين لـ ASA (النسخة العربية PDF)"
+          : "EGYPT CHINA FOR ASA Official Company Brochure (English PDF)",
+      format: locale === "ar" ? "PDF (1.24 MB)" : "PDF (916 KB)",
+      status: locale === "ar" ? "متاح للتحميل المباشر" : "Verified & Ready",
+      href:
         locale === "ar"
-          ? "[يُضاف بعد اعتماد قسم الجودة]"
-          : "[Pending QC Release]",
-      href: "",
-      isAvailable: false,
+          ? "/assets/ASA_Brochure_AR.pdf"
+          : "/assets/ASA_Brochure_EN.pdf",
+      isAvailable: true,
+      downloadLabel:
+        locale === "ar" ? "تحميل البروشور PDF" : "Download Brochure PDF",
     },
     {
       id: "DOC-03",
@@ -429,7 +439,7 @@ export default async function AboutPage({ params }: PageProps) {
                             download
                             className="min-h-[44px] inline-flex items-center px-3.5 py-1.5 rounded-[var(--radius-xs)] bg-[var(--color-gold)] text-[var(--color-navy-deep)] font-bold text-xs hover:bg-[var(--color-gold-bright)]"
                           >
-                            {dict.common.downloadPdfBtn}
+                            {row.downloadLabel ?? dict.common.downloadPdfBtn}
                           </a>
                           <a
                             href={row.href}
