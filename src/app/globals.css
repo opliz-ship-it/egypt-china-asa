@@ -222,7 +222,7 @@ textarea:disabled,
   position: relative;
   width: 100%;
   aspect-ratio: 1024 / 447;
-  background-color: var(--active-swatch-color, var(--sku-ral5012));
+  background-color: var(--active-swatch-color, var(--sku-ecral5012));
   transition: background-color var(--dur-normal) var(--ease-out);
 }
 

@@ -134,7 +134,11 @@ export default async function ContactPage({ params }: PageProps) {
                   {dict.common.openMapAction}
                 </a>
                 <a
-                  href="/assets/Egypt_China_ASA_Brochure.pdf"
+                  href={
+                    locale === "ar"
+                      ? "/assets/ASA_Catalog_AR.pdf"
+                      : "/assets/ASA_Catalog_EN.pdf"
+                  }
                   download
                   className="btn-action w-full bg-[var(--color-navy-deep)] text-[var(--color-gold-bright)] border border-[var(--color-gold)] text-sm"
                 >

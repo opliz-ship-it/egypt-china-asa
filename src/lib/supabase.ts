@@ -80,19 +80,19 @@ export interface SupabaseInquiryRow {
 }
 
 const KNOWN_SKU_TOKEN_MAP: Record<string, string> = {
-  CMG96279: "var(--sku-cmg96279)",
-  CMA45050: "var(--sku-cma45050)",
-  CMO98501: "var(--sku-cmo98501)",
-  RAL5012: "var(--sku-ral5012)",
-  CMB97508: "var(--sku-cmb97508)",
-  CMO96398: "var(--sku-cmo96398)",
-  CMA96681: "var(--sku-cma96681)",
-  CMO96375: "var(--sku-cmo96375)",
-  RAL7045: "var(--sku-ral7045)",
-  RAL1014: "var(--sku-ral1014)",
-  RAL6019: "var(--sku-ral6019)",
-  CMO96275: "var(--sku-cmo96275)",
-  RAL9016: "var(--sku-ral9016)",
+  ECCMG96279: "var(--sku-eccmg96279)",
+  ECCMA45050: "var(--sku-eccma45050)",
+  ECCMO98501: "var(--sku-eccmo98501)",
+  ECRAL5012: "var(--sku-ecral5012)",
+  ECCMB97508: "var(--sku-eccmb97508)",
+  ECCMO96398: "var(--sku-eccmo96398)",
+  ECCMA96681: "var(--sku-eccma96681)",
+  ECCMO96375: "var(--sku-eccmo96375)",
+  ECRAL7045: "var(--sku-ecral7045)",
+  ECRAL1014: "var(--sku-ecral1014)",
+  ECRAL6019: "var(--sku-ecral6019)",
+  ECCMO96275: "var(--sku-eccmo96275)",
+  ECRAL9016: "var(--sku-ecral9016)",
 };
 
 export function buildRestHeaders(accessToken?: string): Record<string, string> {
@@ -104,36 +104,42 @@ export function buildRestHeaders(accessToken?: string): Record<string, string> {
 }
 
 export function mapSupabaseRowToSku(row: SupabaseCatalogItemRow): ErpAsaSkuItem {
-  const upperCode = row.code.trim().toUpperCase();
+  const rawUpper = row.code.trim().toUpperCase();
+  const normalizedCode = rawUpper.startsWith("EC") ? rawUpper : `EC${rawUpper}`;
   const existing = ERP_ASA_FILM_SKUS.find(
-    (s) => s.code.toUpperCase() === upperCode
+    (s) => s.code.toUpperCase() === rawUpper || s.code.toUpperCase() === normalizedCode
   );
-  const defaultColorToken = KNOWN_SKU_TOKEN_MAP[upperCode] ?? "var(--sku-ral5012)";
+  const defaultColorToken =
+    KNOWN_SKU_TOKEN_MAP[rawUpper] ??
+    KNOWN_SKU_TOKEN_MAP[normalizedCode] ??
+    "var(--sku-ecral5012)";
   const defaultRealHex = existing ? undefined : row.hex_color;
 
   const defaultHexForKnown: Record<string, string> = {
-    CMG96279: "1E824C",
-    CMA45050: "F3F4F6",
-    CMO98501: "EAB308",
-    RAL5012: "0089B6",
-    CMB97508: "0F3B5F",
-    CMO96398: "A6191E",
-    CMA96681: "43474D",
-    CMO96375: "C2410C",
-    RAL7045: "8D949A",
-    RAL1014: "DFCEA1",
-    RAL6019: "B7D9B1",
-    CMO96275: "EA580C",
-    RAL9016: "F7F8F6",
+    ECCMG96279: "1E824C",
+    ECCMA45050: "F3F4F6",
+    ECCMO98501: "EAB308",
+    ECRAL5012: "0089B6",
+    ECCMB97508: "0F3B5F",
+    ECCMO96398: "A6191E",
+    ECCMA96681: "43474D",
+    ECCMO96375: "C2410C",
+    ECRAL7045: "8D949A",
+    ECRAL1014: "DFCEA1",
+    ECRAL6019: "B7D9B1",
+    ECCMO96275: "EA580C",
+    ECRAL9016: "F7F8F6",
   };
 
   const normalizedDbHex = (row.hex_color || "")
     .replace(/[^0-9a-fA-F]/g, "")
     .toUpperCase();
+  const knownDefaultHex =
+    defaultHexForKnown[rawUpper] ?? defaultHexForKnown[normalizedCode];
   const isModifiedFromDefault =
     normalizedDbHex.length === 6 &&
-    defaultHexForKnown[upperCode] !== undefined &&
-    defaultHexForKnown[upperCode] !== normalizedDbHex;
+    knownDefaultHex !== undefined &&
+    knownDefaultHex !== normalizedDbHex;
 
   const resolvedColorToken =
     isModifiedFromDefault || defaultRealHex
@@ -150,7 +156,7 @@ export function mapSupabaseRowToSku(row: SupabaseCatalogItemRow): ErpAsaSkuItem 
     groupLabel || (isBottom ? "ASA Film (Bottom)" : "ASA Film (Top)");
 
   return {
-    id: String(row.id || existing?.id || `sku-${upperCode}`),
+    id: String(row.id || existing?.id || `sku-${normalizedCode}`),
     itemNo: row.sort_order ?? row.item_no ?? existing?.itemNo ?? 99,
     code: row.code,
     category: resolvedCategory,

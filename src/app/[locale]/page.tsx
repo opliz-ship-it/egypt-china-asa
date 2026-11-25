@@ -374,7 +374,11 @@ export default async function HomePage({ params }: PageProps) {
 
                 <div className="pt-2">
                   <a
-                    href="/assets/Egypt_China_ASA_Brochure.pdf"
+                    href={
+                      locale === "ar"
+                        ? "/assets/ASA_Catalog_AR.pdf"
+                        : "/assets/ASA_Catalog_EN.pdf"
+                    }
                     download
                     className="btn-action w-full bg-[var(--color-navy-deep)] text-[var(--color-gold-bright)] border border-[var(--color-gold)] hover:bg-[var(--color-gold)] hover:text-[var(--color-navy-deep)] text-sm"
                   >

@@ -94,11 +94,14 @@ export default async function AboutPage({ params }: PageProps) {
       id: "DOC-01",
       title:
         locale === "ar"
-          ? "الكتالوج الفني الرسمي لشركة مصر الصين لـ ASA (PDF)"
-          : "EGYPT CHINA FOR ASA Official Technical Catalog (PDF)",
-      format: "PDF (2.05 MB)",
+          ? "الكتالوج الرسمي الكامل لشركة مصر الصين لـ ASA (8 صفحات العربية PDF)"
+          : "EGYPT CHINA FOR ASA Official 8-Page Product Catalog (English PDF)",
+      format: locale === "ar" ? "PDF (8.35 MB)" : "PDF (7.96 MB)",
       status: locale === "ar" ? "متاح للتحميل المباشر" : "Verified & Ready",
-      href: "/assets/Egypt_China_ASA_Brochure.pdf",
+      href:
+        locale === "ar"
+          ? "/assets/ASA_Catalog_AR.pdf"
+          : "/assets/ASA_Catalog_EN.pdf",
       isAvailable: true,
     },
     {
@@ -107,7 +110,7 @@ export default async function AboutPage({ params }: PageProps) {
         locale === "ar"
           ? "البروشور التعريفي الرسمي لشركة مصر الصين لـ ASA (النسخة العربية PDF)"
           : "EGYPT CHINA FOR ASA Official Company Brochure (English PDF)",
-      format: locale === "ar" ? "PDF (1.24 MB)" : "PDF (916 KB)",
+      format: locale === "ar" ? "PDF (1.25 MB)" : "PDF (915 KB)",
       status: locale === "ar" ? "متاح للتحميل المباشر" : "Verified & Ready",
       href:
         locale === "ar"
@@ -373,8 +376,8 @@ export default async function AboutPage({ params }: PageProps) {
               </h2>
               <p className="text-sm sm:text-base text-[var(--color-on-navy-muted)] mt-1">
                 {locale === "ar"
-                  ? "حمّل الكتالوج الفني الرسمي لشركة مصر الصين لـ ASA بصيغة PDF أو استعرض نشرات المواصفات:"
-                  : "Download the official EGYPT CHINA FOR ASA Technical Brochure PDF and specification sheets:"}
+                  ? "حمّل الكتالوج الكامل (8 صفحات) والبروشور التعريفي لشركة مصر الصين لـ ASA بصيغة PDF:"
+                  : "Download the official EGYPT CHINA FOR ASA 8-Page Product Catalog and Company Brochure PDFs:"}
               </p>
             </div>
 

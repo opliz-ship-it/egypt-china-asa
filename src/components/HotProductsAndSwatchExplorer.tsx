@@ -32,7 +32,7 @@ export function ErpRoofSheetCatalogExplorer({
 
   const [layerFilter, setLayerFilter] = useState<string>("all");
   const [skuSearch, setSkuSearch] = useState<string>("");
-  const [activeCode, setActiveCode] = useState<string>("RAL5012");
+  const [activeCode, setActiveCode] = useState<string>("ECRAL5012");
   const [previewMode, setPreviewMode] = useState<"sheet" | "specimen">("sheet");
 
   const filteredSkus = useMemo(() => {
@@ -97,8 +97,8 @@ export function ErpRoofSheetCatalogExplorer({
               onChange={(e) => setSkuSearch(e.target.value)}
               placeholder={
                 locale === "ar"
-                  ? "ابحث بالكود (مثل RAL5012 أو CMO96398)..."
-                  : "Search by code (e.g. RAL5012, CMO96398)..."
+                  ? "ابحث بالكود (مثل ECRAL5012 أو ECCMO96398)..."
+                  : "Search by code (e.g. ECRAL5012, ECCMO96398)..."
               }
               className="w-full min-h-[44px] rounded-[var(--radius-sm)] border border-[var(--color-sand-border)] bg-[var(--color-ivory-elevated)] px-3.5 py-2 text-sm text-[var(--color-ink)] placeholder:text-[var(--color-charcoal)]/75"
             />

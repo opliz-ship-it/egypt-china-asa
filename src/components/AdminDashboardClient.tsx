@@ -760,7 +760,7 @@ export function AdminDashboardClient({
                   required
                   value={skuCode}
                   onChange={(e) => setSkuCode(e.target.value)}
-                  placeholder="RAL5012 / CMO96398"
+                  placeholder="ECRAL5012 / ECCMO96398"
                   className="min-h-[44px] rounded-[var(--radius-sm)] border border-[var(--color-sand-border)] bg-[var(--color-ivory)] px-3 py-2 text-sm font-mono"
                 />
               </div>

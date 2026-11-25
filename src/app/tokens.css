@@ -44,19 +44,19 @@
   --swatch-grey: #454b52;
 
   /* 13 Official ERP ASA Film SKU Color Tokens (Top & Bottom Layers) */
-  --sku-cmg96279: #1e824c;
-  --sku-cma45050: #f3f4f6;
-  --sku-cmo98501: #eab308;
-  --sku-ral5012: #0089b6;
-  --sku-cmb97508: #0f3b5f;
-  --sku-cmo96398: #a6191e;
-  --sku-cma96681: #43474d;
-  --sku-cmo96375: #c2410c;
-  --sku-ral7045: #8d949a;
-  --sku-ral1014: #dfcea1;
-  --sku-ral6019: #b7d9b1;
-  --sku-cmo96275: #ea580c;
-  --sku-ral9016: #f7f8f6;
+  --sku-eccmg96279: #1e824c;
+  --sku-eccma45050: #f3f4f6;
+  --sku-eccmo98501: #eab308;
+  --sku-ecral5012: #0089b6;
+  --sku-eccmb97508: #0f3b5f;
+  --sku-eccmo96398: #a6191e;
+  --sku-eccma96681: #43474d;
+  --sku-eccmo96375: #c2410c;
+  --sku-ecral7045: #8d949a;
+  --sku-ecral1014: #dfcea1;
+  --sku-ecral6019: #b7d9b1;
+  --sku-eccmo96275: #ea580c;
+  --sku-ecral9016: #f7f8f6;
 
   /* Interactive Previewer & WhatsApp Action Tokens */
   --color-sheet-stage-top: #f8f5ec;

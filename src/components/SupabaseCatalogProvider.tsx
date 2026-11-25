@@ -46,7 +46,7 @@ const SupabaseCatalogContext = createContext<SupabaseCatalogContextValue>({
   mediaRows: [],
   settings: null,
   isSynced: false,
-  selectedSkus: ["RAL5012"],
+  selectedSkus: ["ECRAL5012"],
   toggleSku: () => {},
   addSku: () => {},
   removeSku: () => {},
@@ -56,7 +56,12 @@ const SupabaseCatalogContext = createContext<SupabaseCatalogContextValue>({
   refreshCatalog: async () => {},
 });
 
-const STORAGE_KEY = "asa_selected_skus_v2";
+const STORAGE_KEY = "asa_selected_skus_v3";
+const LEGACY_CODES = new Set([
+  "CMG96279", "CMA45050", "CMO98501", "RAL5012", "CMB97508",
+  "CMO96398", "CMA96681", "CMO96375", "RAL7045", "RAL1014",
+  "RAL6019", "CMO96275", "RAL9016",
+]);
 
 export function SupabaseCatalogProvider({
   children,
@@ -71,7 +76,7 @@ export function SupabaseCatalogProvider({
   const [mediaRows, setMediaRows] = useState<SupabaseMediaRow[]>([]);
   const [settings, setSettings] = useState<SupabaseSettingsRow | null>(null);
   const [isSynced, setIsSynced] = useState(false);
-  const [selectedSkus, setSelectedSkus] = useState<string[]>(["RAL5012"]);
+  const [selectedSkus, setSelectedSkus] = useState<string[]>(["ECRAL5012"]);
 
   const refreshCatalog = useCallback(async () => {
     const live = await fetchLiveSupabaseCatalog();
@@ -85,7 +90,9 @@ export function SupabaseCatalogProvider({
 
   useEffect(() => {
     try {
-      const saved = window.localStorage.getItem(STORAGE_KEY);
+      const saved =
+        window.localStorage.getItem(STORAGE_KEY) ??
+        window.localStorage.getItem("asa_selected_skus_v2");
       if (saved) {
         const parsed = JSON.parse(saved) as unknown;
         if (
@@ -93,7 +100,11 @@ export function SupabaseCatalogProvider({
           parsed.length > 0 &&
           parsed.every((item) => typeof item === "string")
         ) {
-          setSelectedSkus(parsed);
+          const upgraded = parsed.map((c) => {
+            const up = c.trim().toUpperCase();
+            return LEGACY_CODES.has(up) ? `EC${up}` : c;
+          });
+          setSelectedSkus(upgraded);
         }
       }
     } catch {
@@ -163,7 +174,7 @@ export function SupabaseCatalogProvider({
           ? codesOverride
           : selectedSkus.length > 0
             ? selectedSkus
-            : ["RAL5012"];
+            : ["ECRAL5012"];
 
       const detailedLines = codes.map((code) => {
         const found = skus.find((s) => s.code === code);
@@ -198,7 +209,7 @@ export function SupabaseCatalogProvider({
           ? codesOverride
           : selectedSkus.length > 0
             ? selectedSkus
-            : ["RAL5012"];
+            : ["ECRAL5012"];
 
       if (typeof window !== "undefined") {
         window.dispatchEvent(
