@@ -7,14 +7,16 @@ export const inquiryCategoryValues = [
 ] as const;
 
 export const inquiryRequestSchema = z.object({
-  fullName: z.string().trim().min(2),
-  company: z.string().trim().min(2),
-  email: z.string().trim().email(),
-  phone: z.string().trim().min(7),
+  fullName: z.string().trim().min(2).max(120),
+  company: z.string().trim().min(2).max(160),
+  email: z.string().trim().email().max(180),
+  phone: z.string().trim().min(7).max(40),
   category: z.enum(inquiryCategoryValues),
-  message: z.string().trim().min(15),
+  message: z.string().trim().min(15).max(2000),
   locale: z.enum(["ar", "en"]).optional(),
-  productCode: z.string().trim().optional(),
+  productCode: z.string().trim().max(80).optional(),
+  website: z.string().max(120).optional(),
+  formStartedAt: z.number().int().positive().optional(),
 });
 
 export type InquiryRequestPayload = z.infer<typeof inquiryRequestSchema>;

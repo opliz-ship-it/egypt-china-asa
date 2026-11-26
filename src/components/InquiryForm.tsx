@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import type { Dictionary, Locale } from "@/i18n/config";
 import {
   inquiryCategoryValues,
@@ -38,6 +38,12 @@ export function InquiryForm({
   const [message, setMessage] = useState(
     productCode ? `[Grade: ${productCode}] ` : ""
   );
+  const [website, setWebsite] = useState("");
+  const mountedAtRef = useRef<number>(0);
+
+  useEffect(() => {
+    mountedAtRef.current = Date.now();
+  }, []);
 
   const applySkuCodesToMessage = useCallback(
     (codes: string[]) => {
@@ -130,6 +136,9 @@ export function InquiryForm({
           message,
           locale,
           productCode,
+          website,
+          formStartedAt:
+            mountedAtRef.current > 0 ? mountedAtRef.current : undefined,
         }),
       });
 
@@ -157,6 +166,8 @@ export function InquiryForm({
     setPhone("");
     setCategory(defaultCategory ?? "");
     setMessage(productCode ? `[Grade: ${productCode}] ` : "");
+    setWebsite("");
+    mountedAtRef.current = Date.now();
     setFieldErrors({});
     setServerError(null);
     setReferenceId(null);
@@ -204,6 +215,21 @@ export function InquiryForm({
       }`}
       style={{ boxShadow: "var(--shadow-elevated)" }}
     >
+      <div className="sr-only" aria-hidden="true">
+        <label htmlFor={`inquiry-website-${productCode ?? "main"}`}>
+          Website
+        </label>
+        <input
+          id={`inquiry-website-${productCode ?? "main"}`}
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
+
       {status === "error" && (
         <div
           className="mb-6 rounded-[var(--radius-sm)] border border-[var(--color-error-border)] bg-[var(--color-error-bg)] p-4 text-sm text-[var(--color-error)] font-medium"
