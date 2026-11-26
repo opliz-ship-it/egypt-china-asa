@@ -1,24 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getDictionary, isValidLocale, locales } from "@/i18n/config";
-import { EDITORIAL_SLOTS } from "@/data/catalog";
+import { getDictionary, isValidLocale } from "@/i18n/config";
+import { fetchLiveSupabaseCatalog } from "@/lib/supabase";
 import { RiverRibbon } from "@/components/RiverRibbon";
+
+export const dynamic = "force-dynamic";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
-
-export function generateStaticParams() {
-  const caseItems = EDITORIAL_SLOTS.filter((i) => i.type === "case");
-  const out: Array<{ locale: string; slug: string }> = [];
-  for (const locale of locales) {
-    for (const item of caseItems) {
-      out.push({ locale, slug: item.slug });
-    }
-  }
-  return out;
-}
 
 export default async function CaseDetailPage({ params }: PageProps) {
   const { locale, slug } = await params;
@@ -27,7 +18,8 @@ export default async function CaseDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const caseItems = EDITORIAL_SLOTS.filter((i) => i.type === "case");
+  const live = await fetchLiveSupabaseCatalog();
+  const caseItems = live.editorialPosts.filter((i) => i.type === "case");
   const index = caseItems.findIndex((i) => i.slug === slug);
   if (index === -1) {
     notFound();

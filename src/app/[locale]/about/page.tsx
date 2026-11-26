@@ -4,6 +4,13 @@ import { notFound } from "next/navigation";
 import { getDictionary, isValidLocale } from "@/i18n/config";
 import { ProductionStagesSection } from "@/components/ProductionStagesSection";
 import { RiverRibbon } from "@/components/RiverRibbon";
+import {
+  AboutDownloadsTable,
+  AboutEstablishedBadge,
+  AboutLabEquipmentGrid,
+  AboutPlantCapacityValue,
+  AboutQualificationCertsGrid,
+} from "@/components/AboutDynamicSections";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -163,9 +170,7 @@ export default async function AboutPage({ params }: PageProps) {
       >
         <div className="catalog-container grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-6 flex flex-col gap-4">
-            <span className="inline-flex self-start px-3 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy)] text-[var(--color-gold-bright)] text-xs font-semibold border border-[var(--color-gold)]">
-              {dict.common.yearPendingBadge}
-            </span>
+            <AboutEstablishedBadge dict={dict} />
             <h2
               className="text-[var(--color-navy)] font-bold"
               style={{ fontSize: "var(--text-2xl)" }}
@@ -194,12 +199,7 @@ export default async function AboutPage({ params }: PageProps) {
                     ? "الطاقة الإنتاجية والمساحة"
                     : "Plant Capacity & Area"}
                 </span>
-                <strong
-                  dir="ltr"
-                  className="block font-mono text-sm font-bold text-[var(--color-crimson)] mt-0.5"
-                >
-                  {dict.common.clientMetricPending}
-                </strong>
+                <AboutPlantCapacityValue dict={dict} />
               </div>
             </div>
           </div>
@@ -276,41 +276,7 @@ export default async function AboutPage({ params }: PageProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {labEquipmentList.map((eq) => (
-              <article
-                key={eq.code}
-                className="rounded-[var(--radius-md)] border border-[var(--color-sand-border)] bg-[var(--color-ivory-elevated)] p-6 flex flex-col justify-between gap-4"
-              >
-                <div className="flex flex-col gap-2.5">
-                  <div className="flex items-center justify-between">
-                    <span
-                      dir="ltr"
-                      className="font-mono text-xs font-bold px-2.5 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy)] text-[var(--color-gold-bright)]"
-                    >
-                      {eq.code}
-                    </span>
-                    <span
-                      dir="ltr"
-                      className="font-mono text-xs font-semibold text-[var(--color-crimson)]"
-                    >
-                      {eq.standard}
-                    </span>
-                  </div>
-                  <h3 className="text-base font-bold text-[var(--color-navy)]">
-                    {eq.name}
-                  </h3>
-                  <p className="text-sm text-[var(--color-charcoal)] leading-relaxed">
-                    {eq.purpose}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[var(--color-sand-border)] text-xs font-semibold text-[var(--color-charcoal)]">
-                  [LAB_INSTRUMENT_PHOTO_SLOT]
-                </div>
-              </article>
-            ))}
-          </div>
+          <AboutLabEquipmentGrid items={labEquipmentList} locale={locale} />
         </div>
       </section>
 
@@ -334,31 +300,7 @@ export default async function AboutPage({ params }: PageProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((slotNum) => (
-              <div
-                key={slotNum}
-                className="rounded-[var(--radius-md)] border-2 border-dashed border-[var(--color-sand-border)] bg-[var(--color-ivory-elevated)] p-6 flex flex-col items-center justify-center text-center gap-3 min-h-[220px]"
-              >
-                <span
-                  dir="ltr"
-                  className="px-3 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy)] text-[var(--color-gold-bright)] text-xs font-bold border border-[var(--color-gold)]"
-                >
-                  [CERT_UPLOAD_SLOT_0{slotNum}]
-                </span>
-                <strong className="text-sm font-bold text-[var(--color-navy)]">
-                  {locale === "ar"
-                    ? `شهادة اعتماد وفحص معملي رقم 0${slotNum}`
-                    : `Official Lab & Production Certificate Slot 0${slotNum}`}
-                </strong>
-                <p className="text-xs text-[var(--color-charcoal)] max-w-xs">
-                  {locale === "ar"
-                    ? "تُرفع النسخة الممسوحة ضوئياً هنا بعد مراجعة واعتماد إدارة الجودة."
-                    : "Awaiting verified PDF/image scan from EGYPT CHINA FOR ASA quality assurance."}
-                </p>
-              </div>
-            ))}
-          </div>
+          <AboutQualificationCertsGrid locale={locale} />
         </div>
       </section>
 
@@ -391,84 +333,11 @@ export default async function AboutPage({ params }: PageProps) {
             </Link>
           </div>
 
-          <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-gold)] bg-[var(--color-navy-deep)]">
-            <table className="w-full border-collapse text-sm">
-              <thead>
-                <tr className="border-b border-[var(--color-gold)] bg-[var(--color-navy)] text-[var(--color-gold-bright)]">
-                  <th scope="col" className="p-4 text-start font-bold">
-                    ID
-                  </th>
-                  <th scope="col" className="p-4 text-start font-bold">
-                    {locale === "ar" ? "اسم الوثيقة الفنية" : "Document Title"}
-                  </th>
-                  <th scope="col" className="p-4 text-start font-bold">
-                    {locale === "ar" ? "الصيغة والحجم" : "Format & Size"}
-                  </th>
-                  <th scope="col" className="p-4 text-start font-bold">
-                    {locale === "ar" ? "الحالة" : "Status"}
-                  </th>
-                  <th scope="col" className="p-4 text-start font-bold">
-                    {locale === "ar" ? "الإجراء" : "Action"}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {downloadsRows.map((row) => (
-                  <tr
-                    key={row.id}
-                    className="border-b border-[var(--color-navy-border)] last:border-b-0"
-                  >
-                    <td
-                      dir="ltr"
-                      className="p-4 font-mono text-xs text-[var(--color-gold-bright)]"
-                    >
-                      {row.id}
-                    </td>
-                    <td className="p-4 font-semibold text-[var(--color-on-navy)]">
-                      {row.title}
-                    </td>
-                    <td
-                      dir="ltr"
-                      className="p-4 font-mono text-xs text-[var(--color-on-navy-muted)]"
-                    >
-                      {row.format}
-                    </td>
-                    <td className="p-4 text-xs text-[var(--color-gold-bright)]">
-                      {row.status}
-                    </td>
-                    <td className="p-4">
-                      {row.isAvailable ? (
-                        <div className="flex flex-wrap items-center gap-2">
-                          <a
-                            href={row.href}
-                            download
-                            className="min-h-[44px] inline-flex items-center px-3.5 py-1.5 rounded-[var(--radius-xs)] bg-[var(--color-gold)] text-[var(--color-navy-deep)] font-bold text-xs hover:bg-[var(--color-gold-bright)]"
-                          >
-                            {row.downloadLabel ?? dict.common.downloadPdfBtn}
-                          </a>
-                          <a
-                            href={row.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="min-h-[44px] inline-flex items-center px-3.5 py-1.5 rounded-[var(--radius-xs)] border border-[var(--color-gold)] text-[var(--color-gold-bright)] font-semibold text-xs hover:bg-[var(--color-navy)]"
-                          >
-                            {dict.common.previewPdfBtn}
-                          </a>
-                        </div>
-                      ) : (
-                        <Link
-                          href={`/${locale}/contact#inquiry`}
-                          className="min-h-[44px] inline-flex items-center px-3.5 py-1.5 rounded-[var(--radius-xs)] border border-[var(--color-navy-border)] bg-[var(--color-navy)] text-xs text-[var(--color-on-navy-muted)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold-bright)]"
-                        >
-                          {dict.common.requestQuoteBtn}
-                        </Link>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <AboutDownloadsTable
+            locale={locale}
+            dict={dict}
+            defaultRows={downloadsRows}
+          />
         </div>
       </section>
     </div>

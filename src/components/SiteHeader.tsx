@@ -233,7 +233,11 @@ export function SiteHeader({ locale, dict }: SiteHeaderProps) {
         <div className="catalog-container flex flex-wrap items-center justify-between gap-2 py-1.5">
           <div className="flex flex-wrap items-center gap-3 sm:gap-5">
             <a
-              href="mailto:info@egyptchina-asa.example"
+              href={
+                settings?.email && !settings.email.includes("[")
+                  ? `mailto:${settings.email.trim()}`
+                  : "mailto:info@egyptchina-asa.example"
+              }
               className="inline-flex items-center gap-1.5 min-h-[44px] sm:min-h-[34px] py-1 text-[var(--color-on-navy-muted)] hover:text-[var(--color-gold-bright)]"
             >
               <svg

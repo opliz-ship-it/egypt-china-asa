@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Dictionary, Locale } from "@/i18n/config";
 import { useSupabaseCatalog } from "@/components/SupabaseCatalogProvider";
+import { resolveFactoryVideoSource } from "@/lib/supabase";
 
 interface FactoryOverviewSectionProps {
   locale: Locale;
@@ -14,8 +15,12 @@ export function FactoryOverviewSection({
   locale,
   dict,
 }: FactoryOverviewSectionProps) {
-  const { media } = useSupabaseCatalog();
+  const { media, settings } = useSupabaseCatalog();
   const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const videoSource = resolveFactoryVideoSource(settings?.video_url);
+  const establishedBadge = settings?.established_year?.trim()
+    ? settings.established_year.trim()
+    : dict.common.yearPendingBadge;
   const triggerBtnRef = useRef<HTMLButtonElement | null>(null);
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);
 
@@ -53,7 +58,7 @@ export function FactoryOverviewSection({
           {/* Narrative & Honest Establishment Slot Column */}
           <div className="lg:col-span-6 flex flex-col gap-5 min-w-0">
             <div className="inline-flex items-center self-start px-3 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy)] text-[var(--color-gold-bright)] text-xs font-semibold border border-[var(--color-gold)]">
-              {dict.common.yearPendingBadge}
+              {establishedBadge}
             </div>
 
             <h2
@@ -156,7 +161,11 @@ export function FactoryOverviewSection({
                   dir="ltr"
                   className="font-semibold text-[var(--color-gold-bright)]"
                 >
-                  [COMPANY_VIDEO_SLOT]
+                  {videoSource
+                    ? locale === "ar"
+                      ? "فيديو المصنع الموثق"
+                      : "Verified Plant Video"
+                    : "[COMPANY_VIDEO_SLOT]"}
                 </span>
               </div>
             </div>
@@ -208,24 +217,44 @@ export function FactoryOverviewSection({
               </button>
             </div>
 
-            <div className="aspect-video w-full rounded-[var(--radius-sm)] border border-[var(--color-gold)]/60 bg-[var(--color-navy)] p-6 flex flex-col items-center justify-center text-center gap-3">
-              <img
-                src="/assets/opt/factory-facade.webp"
-                width={296}
-                height={162}
-                alt={dict.common.brandNameEn}
-                className="w-56 h-auto object-cover rounded-[var(--radius-xs)] border border-[var(--color-gold)]"
-              />
-              <span
-                dir="ltr"
-                className="text-sm font-bold text-[var(--color-gold-bright)]"
-              >
-                [COMPANY_VIDEO_SLOT]
-              </span>
-              <p className="text-sm text-[var(--color-on-navy-muted)] max-w-md">
-                {dict.partnership.videoModalDesc}
-              </p>
-            </div>
+            {videoSource ? (
+              <div className="aspect-video w-full rounded-[var(--radius-sm)] border border-[var(--color-gold)] overflow-hidden bg-[var(--color-navy-deep)]">
+                {videoSource.kind === "youtube" ? (
+                  <iframe
+                    src={videoSource.src}
+                    title={dict.partnership.videoModalTitle}
+                    className="w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <video
+                    src={videoSource.src}
+                    controls
+                    className="w-full h-full object-contain"
+                  />
+                )}
+              </div>
+            ) : (
+              <div className="aspect-video w-full rounded-[var(--radius-sm)] border border-[var(--color-gold)]/60 bg-[var(--color-navy)] p-6 flex flex-col items-center justify-center text-center gap-3">
+                <img
+                  src={media.factory_facade || "/assets/opt/factory-facade.webp"}
+                  width={296}
+                  height={162}
+                  alt={dict.common.brandNameEn}
+                  className="w-56 h-auto object-cover rounded-[var(--radius-xs)] border border-[var(--color-gold)]"
+                />
+                <span
+                  dir="ltr"
+                  className="text-sm font-bold text-[var(--color-gold-bright)]"
+                >
+                  [COMPANY_VIDEO_SLOT]
+                </span>
+                <p className="text-sm text-[var(--color-on-navy-muted)] max-w-md">
+                  {dict.partnership.videoModalDesc}
+                </p>
+              </div>
+            )}
 
             <div className="flex justify-end">
               <button

@@ -11,11 +11,14 @@ import React, {
 import {
   DEFAULT_ERP_CATEGORIES,
   DEFAULT_SITE_MEDIA,
+  EDITORIAL_SLOTS,
   ERP_ASA_FILM_SKUS,
+  type EditorialSlotItem,
   type ErpAsaSkuItem,
   type ErpCategoryOption,
 } from "@/data/catalog";
 import {
+  buildWhatsAppHref,
   fetchLiveSupabaseCatalog,
   type SupabaseMediaRow,
   type SupabaseSettingsRow,
@@ -28,6 +31,7 @@ interface SupabaseCatalogContextValue {
   media: Record<string, string>;
   mediaRows: SupabaseMediaRow[];
   settings: SupabaseSettingsRow | null;
+  editorialPosts: EditorialSlotItem[];
   isSynced: boolean;
   selectedSkus: string[];
   toggleSku: (code: string) => void;
@@ -45,6 +49,7 @@ const SupabaseCatalogContext = createContext<SupabaseCatalogContextValue>({
   media: DEFAULT_SITE_MEDIA,
   mediaRows: [],
   settings: null,
+  editorialPosts: EDITORIAL_SLOTS,
   isSynced: false,
   selectedSkus: ["ECRAL5012"],
   toggleSku: () => {},
@@ -75,6 +80,8 @@ export function SupabaseCatalogProvider({
   const [media, setMedia] = useState<Record<string, string>>(DEFAULT_SITE_MEDIA);
   const [mediaRows, setMediaRows] = useState<SupabaseMediaRow[]>([]);
   const [settings, setSettings] = useState<SupabaseSettingsRow | null>(null);
+  const [editorialPosts, setEditorialPosts] =
+    useState<EditorialSlotItem[]>(EDITORIAL_SLOTS);
   const [isSynced, setIsSynced] = useState(false);
   const [selectedSkus, setSelectedSkus] = useState<string[]>(["ECRAL5012"]);
 
@@ -85,6 +92,7 @@ export function SupabaseCatalogProvider({
     setMedia(live.media);
     setMediaRows(live.mediaRows);
     setSettings(live.settings);
+    setEditorialPosts(live.editorialPosts);
     setIsSynced(true);
   }, []);
 
@@ -122,21 +130,18 @@ export function SupabaseCatalogProvider({
     }
   }, []);
 
-  const toggleSku = useCallback(
-    (code: string) => {
-      setSelectedSkus((prev) => {
-        const exists = prev.includes(code);
-        const next = exists ? prev.filter((c) => c !== code) : [...prev, code];
-        try {
-          window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-        } catch {
-          // ignore
-        }
-        return next;
-      });
-    },
-    []
-  );
+  const toggleSku = useCallback((code: string) => {
+    setSelectedSkus((prev) => {
+      const exists = prev.includes(code);
+      const next = exists ? prev.filter((c) => c !== code) : [...prev, code];
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  }, []);
 
   const addSku = useCallback((code: string) => {
     setSelectedSkus((prev) => {
@@ -189,15 +194,8 @@ export function SupabaseCatalogProvider({
           ? `مرحباً شركة مصر الصين لإنتاج (ASA)،\nأرغب في طلب طقم عينات وعرض سعر للأكواد التالية من الكتالوج:\n${detailedLines.join("\n")}\nيرجى إفادتنا بالمواصفات الفنية وتفاصيل التوريد من مصنع مدينة السادات.`
           : `Hello EGYPT CHINA FOR ASA,\nI would like to request a sample kit and quotation for the following ASA catalog codes:\n${detailedLines.join("\n")}\nPlease share technical data sheets and Sadat City dispatch terms.`;
 
-      const rawPhone = (settings?.whatsapp_number || settings?.phone || "")
-        .replace(/[^0-9]/g, "");
-
-      const base =
-        rawPhone.length >= 9
-          ? `https://wa.me/${rawPhone}`
-          : "https://wa.me/";
-
-      return `${base}?text=${encodeURIComponent(text)}`;
+      const rawTarget = settings?.whatsapp_number || settings?.phone || "";
+      return buildWhatsAppHref(rawTarget, text);
     },
     [selectedSkus, settings, skus]
   );
@@ -233,6 +231,7 @@ export function SupabaseCatalogProvider({
       media,
       mediaRows,
       settings,
+      editorialPosts,
       isSynced,
       selectedSkus,
       toggleSku,
@@ -249,6 +248,7 @@ export function SupabaseCatalogProvider({
       media,
       mediaRows,
       settings,
+      editorialPosts,
       isSynced,
       selectedSkus,
       toggleSku,

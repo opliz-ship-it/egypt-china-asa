@@ -2,6 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { getDictionary, isValidLocale } from "@/i18n/config";
 import { GOOGLE_MAPS_EMBED_URL, GOOGLE_MAPS_URL } from "@/data/catalog";
+import { ContactSummaryCard } from "@/components/ContactSummaryCard";
 import { InquiryForm } from "@/components/InquiryForm";
 import { RiverRibbon } from "@/components/RiverRibbon";
 
@@ -42,110 +43,9 @@ export default async function ContactPage({ params }: PageProps) {
         className="py-12 lg:py-16 bg-ivory-watermark border-b border-[var(--color-sand-border)]"
       >
         <div className="catalog-container grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Contact Summary Card */}
+          {/* Live Supabase-Synced Contact Summary Card */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="rounded-[var(--radius-md)] border-2 border-[var(--color-gold)] bg-[var(--color-navy)] p-6 sm:p-8 text-[var(--color-on-navy)] flex flex-col gap-5">
-              <div className="flex items-center gap-3.5 pb-4 border-b border-[var(--color-navy-border)]">
-                <img
-                  src="/assets/opt/emblem-circle-sm.webp"
-                  width={56}
-                  height={56}
-                  loading="lazy"
-                  decoding="async"
-                  alt={dict.common.brandNameEn}
-                  className="w-14 h-14 rounded-full border border-[var(--color-gold)] bg-[var(--color-navy-deep)] object-contain shrink-0"
-                />
-                <div>
-                  <h2
-                    dir="ltr"
-                    className="font-wordmark text-base sm:text-lg font-bold text-[var(--color-gold-bright)]"
-                  >
-                    {dict.common.brandNameEn}
-                  </h2>
-                  <span
-                    dir="ltr"
-                    className="text-xs text-[var(--color-on-navy-muted)]"
-                  >
-                    {dict.common.brandNameZh}
-                  </span>
-                </div>
-              </div>
-
-              <dl className="flex flex-col gap-4 text-sm">
-                <div className="flex flex-col gap-1">
-                  <dt className="text-xs text-[var(--color-on-navy-muted)]">
-                    {dict.footer.addressTitle}
-                  </dt>
-                  <dd className="font-semibold text-[var(--color-on-navy)]">
-                    {dict.common.locationLabel}
-                  </dd>
-                </div>
-
-                <div className="flex flex-col gap-1 pt-3 border-t border-[var(--color-navy-border)]">
-                  <dt className="text-xs text-[var(--color-on-navy-muted)]">
-                    {dict.footer.phoneTitle}
-                  </dt>
-                  <dd className="font-mono text-[var(--color-gold-bright)]">
-                    {dict.common.phonePendingLabel}
-                  </dd>
-                </div>
-
-                <div className="flex flex-col gap-1 pt-3 border-t border-[var(--color-navy-border)]">
-                  <dt className="text-xs text-[var(--color-on-navy-muted)]">
-                    {dict.footer.whatsappTitle}
-                  </dt>
-                  <dd className="font-mono text-[var(--color-gold-bright)]">
-                    {dict.common.whatsappPendingLabel}
-                  </dd>
-                </div>
-
-                <div className="flex flex-col gap-1 pt-3 border-t border-[var(--color-navy-border)]">
-                  <dt className="text-xs text-[var(--color-on-navy-muted)]">
-                    WeChat Technical Desk
-                  </dt>
-                  <dd className="font-mono text-[var(--color-gold-bright)]">
-                    {dict.common.wechatPendingLabel}
-                  </dd>
-                </div>
-
-                <div className="flex flex-col gap-1 pt-3 border-t border-[var(--color-navy-border)]">
-                  <dt className="text-xs text-[var(--color-on-navy-muted)]">
-                    {dict.footer.emailTitle}
-                  </dt>
-                  <dd>
-                    <a
-                      href="mailto:info@egyptchina-asa.example"
-                      dir="ltr"
-                      className="font-mono text-xs sm:text-sm text-[var(--color-gold-bright)] underline"
-                    >
-                      {dict.common.emailPendingLabel}
-                    </a>
-                  </dd>
-                </div>
-              </dl>
-
-              <div className="pt-2 flex flex-col gap-2.5">
-                <a
-                  href={GOOGLE_MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-action w-full bg-[var(--color-gold)] text-[var(--color-navy-deep)] font-bold text-sm"
-                >
-                  {dict.common.openMapAction}
-                </a>
-                <a
-                  href={
-                    locale === "ar"
-                      ? "/assets/ASA_Catalog_AR.pdf"
-                      : "/assets/ASA_Catalog_EN.pdf"
-                  }
-                  download
-                  className="btn-action w-full bg-[var(--color-navy-deep)] text-[var(--color-gold-bright)] border border-[var(--color-gold)] text-sm"
-                >
-                  {dict.common.downloadPdfBtn}
-                </a>
-              </div>
-            </div>
+            <ContactSummaryCard locale={locale} dict={dict} />
           </div>
 
           {/* Interactive Inquiry Form */}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDictionary, isValidLocale, locales } from "@/i18n/config";
 import { PRODUCT_CATEGORIES, PRODUCTS } from "@/data/catalog";
+import { DynamicEmailActionButton } from "@/components/ContactSummaryCard";
 import { ProductDetailTabsClient } from "@/components/ProductDetailTabsClient";
 import { InquiryForm } from "@/components/InquiryForm";
 import { RiverRibbon } from "@/components/RiverRibbon";
@@ -145,14 +146,10 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   >
                     {dict.common.requestQuoteBtn}
                   </a>
-                  <a
-                    href={`mailto:info@egyptchina-asa.example?subject=${encodeURIComponent(
-                      `Inquiry: ${product.code}`
-                    )}`}
-                    className="btn-action w-full bg-[var(--color-navy-deep)] text-[var(--color-gold-bright)] border border-[var(--color-gold)]"
-                  >
-                    {dict.common.sendEmailBtn}
-                  </a>
+                  <DynamicEmailActionButton
+                    dict={dict}
+                    subject={`Inquiry: ${product.code}`}
+                  />
                 </div>
               </div>
             </aside>

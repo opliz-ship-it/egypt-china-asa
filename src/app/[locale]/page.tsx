@@ -2,8 +2,9 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDictionary, isValidLocale } from "@/i18n/config";
-import { EDITORIAL_SLOTS } from "@/data/catalog";
 import { HomeHeroShowcase } from "@/components/HomeHeroShowcase";
+import { EditorialSlotsGridClient } from "@/components/EditorialSlotsListClient";
+import { HomeContactMiniPanel } from "@/components/ContactSummaryCard";
 import {
   ColorCalibrationGaugeIcon,
   ColorSwatchesGridIcon,
@@ -37,8 +38,6 @@ export default async function HomePage({ params }: PageProps) {
     <CorrosionShieldIcon key="corr" />,
     <ColorSwatchesGridIcon key="swatches" />,
   ];
-
-  const previewSlots = EDITORIAL_SLOTS.slice(0, 3);
 
   return (
     <div className="flex flex-col">
@@ -238,71 +237,7 @@ export default async function HomePage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {previewSlots.map((slot) => {
-              const targetHref =
-                slot.type === "news"
-                  ? `/${locale}/news/${slot.slug}`
-                  : `/${locale}/cases/${slot.slug}`;
-
-              return (
-                <article
-                  key={slot.slug}
-                  className="interactive-card rounded-[var(--radius-md)] border border-[var(--color-sand-border)] bg-[var(--color-ivory-elevated)] flex flex-col justify-between overflow-hidden"
-                  style={{ boxShadow: "var(--shadow-subtle)" }}
-                >
-                  <div>
-                    <div className="zoom-frame relative border-b border-[var(--color-sand-border)] bg-[var(--color-navy-deep)]">
-                      <img
-                        src={slot.image}
-                        width={520}
-                        height={320}
-                        loading="lazy"
-                        alt={slot.imageAlt[locale]}
-                        className="w-full h-52 object-cover block"
-                      />
-                      <span
-                        dir="ltr"
-                        className="absolute top-3 inset-inline-start-3 px-2.5 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy-deep)] text-[var(--color-gold-bright)] border border-[var(--color-gold)] font-mono text-xs font-bold"
-                      >
-                        {slot.slotCode}
-                      </span>
-                    </div>
-
-                    <div className="p-5 flex flex-col gap-2.5">
-                      <div className="flex items-center justify-between gap-2 text-xs">
-                        <span className="font-semibold text-[var(--color-crimson)]">
-                          {slot.categoryLabel[locale]}
-                        </span>
-                        <span className="font-mono text-[var(--color-charcoal)]">
-                          {slot.statusBadge[locale]}
-                        </span>
-                      </div>
-
-                      <h3 className="text-lg font-bold text-[var(--color-navy)]">
-                        <Link href={targetHref} className="hover:underline">
-                          {slot.title[locale]}
-                        </Link>
-                      </h3>
-
-                      <p className="text-sm text-[var(--color-charcoal)] leading-relaxed">
-                        {slot.summary[locale]}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-5 pt-0">
-                    <Link
-                      href={targetHref}
-                      className="btn-action w-full bg-[var(--color-sand)] text-[var(--color-navy)] border border-[var(--color-sand-border)] hover:bg-[var(--color-navy)] hover:text-[var(--color-gold-bright)] text-sm"
-                    >
-                      {dict.common.viewDetailsBtn}
-                    </Link>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+          <EditorialSlotsGridClient locale={locale} dict={dict} filterType="all" limit={3} />
         </div>
       </section>
 
@@ -350,41 +285,7 @@ export default async function HomePage({ params }: PageProps) {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-2 text-xs sm:text-sm">
-                  <div className="flex justify-between gap-2">
-                    <span className="text-[var(--color-on-navy-muted)]">
-                      {dict.footer.emailTitle}:
-                    </span>
-                    <span
-                      dir="ltr"
-                      className="font-semibold text-[var(--color-gold-bright)]"
-                    >
-                      info@egyptchina-asa.example
-                    </span>
-                  </div>
-                  <div className="flex justify-between gap-2">
-                    <span className="text-[var(--color-on-navy-muted)]">
-                      {dict.footer.phoneTitle}:
-                    </span>
-                    <span className="font-semibold text-[var(--color-gold-bright)]">
-                      {dict.common.phonePendingLabel}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <a
-                    href={
-                      locale === "ar"
-                        ? "/assets/ASA_Catalog_AR.pdf"
-                        : "/assets/ASA_Catalog_EN.pdf"
-                    }
-                    download
-                    className="btn-action w-full bg-[var(--color-navy-deep)] text-[var(--color-gold-bright)] border border-[var(--color-gold)] hover:bg-[var(--color-gold)] hover:text-[var(--color-navy-deep)] text-sm"
-                  >
-                    {dict.common.downloadPdfBtn}
-                  </a>
-                </div>
+                <HomeContactMiniPanel locale={locale} dict={dict} />
               </div>
             </div>
 

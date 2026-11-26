@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDictionary, isValidLocale } from "@/i18n/config";
 import { PRODUCTS } from "@/data/catalog";
+import { DynamicEmailActionButton } from "@/components/ContactSummaryCard";
 import { FaqAccordionClient } from "@/components/FaqAccordionClient";
 import { RiverRibbon } from "@/components/RiverRibbon";
 
@@ -70,12 +71,10 @@ export default async function FaqPage({ params }: PageProps) {
                   >
                     {dict.common.requestQuoteBtn}
                   </Link>
-                  <a
-                    href="mailto:info@egyptchina-asa.example?subject=ASA%20Technical%20FAQ%20Inquiry"
-                    className="btn-action w-full bg-[var(--color-navy-deep)] text-[var(--color-gold-bright)] border border-[var(--color-gold)]"
-                  >
-                    {dict.common.sendEmailBtn}
-                  </a>
+                  <DynamicEmailActionButton
+                    dict={dict}
+                    subject="ASA Technical FAQ Inquiry"
+                  />
                 </div>
               </div>
 

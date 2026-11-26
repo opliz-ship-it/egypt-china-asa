@@ -31,8 +31,8 @@ export default async function AdminPage({ params }: PageProps) {
           </h1>
           <p className="text-sm sm:text-base text-[var(--color-on-navy-muted)] max-w-3xl leading-relaxed">
             {locale === "ar"
-              ? "تحكم كامل في صور الموقع الست، تصنيفات خطوط الإنتاج، أكواد وألوان أفلام ASA الـ 13 (Top & Bottom)، وبيانات التواصل الرسمية مع مزامنة فورية."
-              : "Manage all 6 website image slots, dynamic product categories, the 13 certified ERP ASA film color codes (Top & Bottom), and official contact settings in real time."}
+              ? "إدارة متكاملة لطلبات العينات والرد الفوري عبر واتساب، أكواد وألوان أفلام ASA، صور الواجهة ومراحل التصنيع والشهادات، الأخبار والمشاريع، وبيانات التواصل وملفات التحميل."
+              : "Unified portal for sample inquiry CRM and WhatsApp follow-up, ASA color SKUs, hero, production-stage and certificate photography, news/case publishing, and contact or PDF settings."}
           </p>
         </div>
         <RiverRibbon />

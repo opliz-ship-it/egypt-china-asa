@@ -909,6 +909,7 @@ export interface ErpAsaSkuItem {
   colorAr: string;
   colorZh: string;
   colorToken: string;
+  hexColor?: string;
   specimenImage: string;
   finish: Record<Locale, string>;
   solar: Record<Locale, string>;
@@ -923,6 +924,7 @@ export interface ErpCategoryOption {
   nameEn: string;
   nameZh: string;
   sortOrder: number;
+  isActive?: boolean;
 }
 
 export const DEFAULT_ERP_CATEGORIES: ErpCategoryOption[] = [

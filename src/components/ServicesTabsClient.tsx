@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import type { Dictionary, Locale } from "@/i18n/config";
 import { PURCHASE_STEPS_11 } from "@/data/catalog";
+import { useSupabaseCatalog } from "@/components/SupabaseCatalogProvider";
+import { isValidHttpUrl } from "@/lib/supabase";
 
 interface ServicesTabsClientProps {
   locale: Locale;
@@ -18,6 +20,7 @@ export function ServicesTabsClient({
   dict,
   initialTab,
 }: ServicesTabsClientProps) {
+  const { media } = useSupabaseCatalog();
   const validTab: ServiceTabId =
     initialTab === "purchase" ||
     initialTab === "support" ||
@@ -188,7 +191,11 @@ export function ServicesTabsClient({
             <div className="lg:col-span-5">
               <div className="rounded-[var(--radius-md)] border border-[var(--color-gold)] bg-[var(--color-navy)] p-4 text-[var(--color-on-navy)] flex flex-col gap-3">
                 <img
-                  src="/assets/opt/factory-facade.webp"
+                  src={
+                    isValidHttpUrl(media.packaging_pallet)
+                      ? media.packaging_pallet
+                      : media.factory_facade || "/assets/opt/factory-facade.webp"
+                  }
                   width={296}
                   height={162}
                   loading="lazy"
@@ -198,7 +205,11 @@ export function ServicesTabsClient({
                 />
                 <div className="p-2 flex flex-col gap-1">
                   <span className="text-xs font-semibold text-[var(--color-gold-bright)]">
-                    [PACKAGING_PALLET_SLOT]
+                    {isValidHttpUrl(media.packaging_pallet)
+                      ? locale === "ar"
+                        ? "صورة التغليف والشحن الموثقة"
+                        : "Verified Packaging & Dispatch Photo"
+                      : "[PACKAGING_PALLET_SLOT]"}
                   </span>
                   <p className="text-xs text-[var(--color-on-navy-muted)]">
                     {locale === "ar"

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import type { Dictionary, Locale } from "@/i18n/config";
 import { ProductionStageDiagram } from "@/components/RiverRibbon";
+import { useSupabaseCatalog } from "@/components/SupabaseCatalogProvider";
+import { isValidAssetUrl } from "@/lib/supabase";
 
 interface ProductionStagesSectionProps {
   locale: Locale;
@@ -16,9 +18,14 @@ export function ProductionStagesSection({
   dict,
   mode = "interactive",
 }: ProductionStagesSectionProps) {
+  const { media } = useSupabaseCatalog();
   const [activeIndex, setActiveIndex] = useState(0);
   const stages = dict.productionStages.stages;
   const activeStage = stages[activeIndex] ?? stages[0];
+  const getStagePhoto = (step: string): string | null => {
+    const candidate = media[`stage_${step}`];
+    return isValidAssetUrl(candidate) ? candidate : null;
+  };
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev === 0 ? stages.length - 1 : prev - 1));
@@ -51,19 +58,44 @@ export function ProductionStagesSection({
               style={{ boxShadow: "var(--shadow-subtle)" }}
             >
               <div>
-                {/* Reserved 16:10 Factory Photography Slot */}
-                <div className="aspect-[16/10] w-full bg-[var(--color-navy)] border-b-2 border-[var(--color-gold)] p-5 flex flex-col items-center justify-center text-center gap-3">
-                  <ProductionStageDiagram step={stage.step} />
-                  <span
-                    dir="ltr"
-                    className="px-2.5 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy-deep)] border border-[var(--color-gold)] text-xs font-bold text-[var(--color-gold-bright)]"
-                  >
-                    {stage.slotCode}
-                  </span>
-                  <span className="text-xs text-[var(--color-on-navy-muted)] max-w-xs">
-                    {dict.productionStages.slotInstruction}
-                  </span>
-                </div>
+                {/* 16:10 Factory Photography (Live CMS or Architectural Placeholder) */}
+                {(() => {
+                  const stagePhoto = getStagePhoto(stage.step);
+                  if (stagePhoto) {
+                    return (
+                      <div className="aspect-[16/10] w-full bg-[var(--color-navy)] border-b-2 border-[var(--color-gold)] overflow-hidden relative">
+                        <img
+                          src={stagePhoto}
+                          width={560}
+                          height={350}
+                          loading="lazy"
+                          alt={stage.title}
+                          className="w-full h-full object-cover block"
+                        />
+                        <span
+                          dir="ltr"
+                          className="absolute top-3 inset-inline-start-3 px-2.5 py-0.5 rounded-[var(--radius-xs)] bg-[var(--color-navy-deep)]/90 border border-[var(--color-gold)] text-xs font-bold text-[var(--color-gold-bright)]"
+                        >
+                          STAGE {stage.step}
+                        </span>
+                      </div>
+                    );
+                  }
+                  return (
+                    <div className="aspect-[16/10] w-full bg-[var(--color-navy)] border-b-2 border-[var(--color-gold)] p-5 flex flex-col items-center justify-center text-center gap-3">
+                      <ProductionStageDiagram step={stage.step} />
+                      <span
+                        dir="ltr"
+                        className="px-2.5 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy-deep)] border border-[var(--color-gold)] text-xs font-bold text-[var(--color-gold-bright)]"
+                      >
+                        {stage.slotCode}
+                      </span>
+                      <span className="text-xs text-[var(--color-on-navy-muted)] max-w-xs">
+                        {dict.productionStages.slotInstruction}
+                      </span>
+                    </div>
+                  );
+                })()}
 
                 <div className="p-5 flex flex-col gap-2.5">
                   <div className="flex items-center justify-between gap-2">
@@ -191,19 +223,37 @@ export function ProductionStagesSection({
             className="lg:col-span-7 rounded-[var(--radius-md)] border-2 border-[var(--color-gold)] bg-[var(--color-navy)] text-[var(--color-on-navy)] p-5 sm:p-7 flex flex-col justify-between gap-5"
           >
             <div className="flex flex-col gap-5">
-              {/* Reserved 16:10 Factory Photo Frame */}
-              <div className="aspect-[16/10] w-full rounded-[var(--radius-sm)] border border-[var(--color-gold)] bg-[var(--color-navy-deep)] p-6 flex flex-col items-center justify-center text-center gap-3">
-                <ProductionStageDiagram step={activeStage.step} />
-                <span
-                  dir="ltr"
-                  className="px-3 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy)] border border-[var(--color-gold)] text-xs sm:text-sm font-bold text-[var(--color-gold-bright)]"
-                >
-                  {activeStage.slotCode}
-                </span>
-                <p className="text-xs sm:text-sm text-[var(--color-on-navy-muted)] max-w-md">
-                  {dict.productionStages.slotInstruction}
-                </p>
-              </div>
+              {/* 16:10 Factory Photo Frame (Live CMS or Architectural Placeholder) */}
+              {(() => {
+                const activePhoto = getStagePhoto(activeStage.step);
+                if (activePhoto) {
+                  return (
+                    <div className="aspect-[16/10] w-full rounded-[var(--radius-sm)] border border-[var(--color-gold)] bg-[var(--color-navy-deep)] overflow-hidden">
+                      <img
+                        src={activePhoto}
+                        width={640}
+                        height={400}
+                        alt={activeStage.title}
+                        className="w-full h-full object-cover block"
+                      />
+                    </div>
+                  );
+                }
+                return (
+                  <div className="aspect-[16/10] w-full rounded-[var(--radius-sm)] border border-[var(--color-gold)] bg-[var(--color-navy-deep)] p-6 flex flex-col items-center justify-center text-center gap-3">
+                    <ProductionStageDiagram step={activeStage.step} />
+                    <span
+                      dir="ltr"
+                      className="px-3 py-1 rounded-[var(--radius-xs)] bg-[var(--color-navy)] border border-[var(--color-gold)] text-xs sm:text-sm font-bold text-[var(--color-gold-bright)]"
+                    >
+                      {activeStage.slotCode}
+                    </span>
+                    <p className="text-xs sm:text-sm text-[var(--color-on-navy-muted)] max-w-md">
+                      {dict.productionStages.slotInstruction}
+                    </p>
+                  </div>
+                );
+              })()}
 
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-navy-border)] pb-3">
                 <h3 className="text-xl font-bold text-[var(--color-gold-bright)]">
