@@ -25,7 +25,11 @@ export function InquiryForm({
   productCode,
   compact = false,
 }: InquiryFormProps) {
-  const { selectedSkus, buildWhatsAppUrl } = useSupabaseCatalog();
+  const { selectedSkus, buildWhatsAppUrl, settings } = useSupabaseCatalog();
+  const resolvedContactEmail =
+    settings?.email && !settings.email.includes("[")
+      ? settings.email.trim()
+      : "info@egyptchina-asa.example";
   const [fullName, setFullName] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
@@ -471,7 +475,9 @@ export function InquiryForm({
           </a>
 
           <a
-            href="mailto:info@egyptchina-asa.example?subject=ASA%20Sample%20%26%20Specification%20Inquiry"
+            href={`mailto:${resolvedContactEmail}?subject=${encodeURIComponent(
+              "ASA Sample & Specification Inquiry"
+            )}`}
             className="btn-action w-full sm:w-auto bg-[var(--color-sand)] text-[var(--color-navy)] border border-[var(--color-sand-border)] hover:border-[var(--color-navy)] text-sm"
           >
             {dict.common.sendEmailBtn}
