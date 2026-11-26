@@ -124,15 +124,17 @@ export default async function AboutPage({ params }: PageProps) {
       id: "DOC-03",
       title:
         locale === "ar"
-          ? "بطاقة مطابقة الألوان القياسية والماسترباتش [RAL_COLOR_CARD_PDF]"
-          : "Standard Masterbatch & Swatch Reference Card [RAL_COLOR_CARD_PDF]",
-      format: "PDF [CLIENT_DATA_PENDING]",
-      status:
+          ? "نشرة البيانات الفنية الرسمية لأفلام ASA (النسخة العربية PDF)"
+          : "EGYPT CHINA FOR ASA Official Technical Data Sheet (English PDF)",
+      format: locale === "ar" ? "PDF (1.36 MB)" : "PDF (986 KB)",
+      status: locale === "ar" ? "متاح للتحميل المباشر" : "Verified & Ready",
+      href:
         locale === "ar"
-          ? "[يُضاف بعد اعتماد قسم الجودة]"
-          : "[Pending QC Release]",
-      href: "",
-      isAvailable: false,
+          ? "/assets/ASA_TDS_AR.pdf"
+          : "/assets/ASA_TDS_EN.pdf",
+      isAvailable: true,
+      downloadLabel:
+        locale === "ar" ? "تحميل الداتا شيت PDF" : "Download Data Sheet PDF",
     },
   ];
 
@@ -376,8 +378,8 @@ export default async function AboutPage({ params }: PageProps) {
               </h2>
               <p className="text-sm sm:text-base text-[var(--color-on-navy-muted)] mt-1">
                 {locale === "ar"
-                  ? "حمّل الكتالوج الكامل (8 صفحات) والبروشور التعريفي لشركة مصر الصين لـ ASA بصيغة PDF:"
-                  : "Download the official EGYPT CHINA FOR ASA 8-Page Product Catalog and Company Brochure PDFs:"}
+                  ? "حمّل الكتالوج الكامل (8 صفحات) والبروشور التعريفي ونشرة البيانات الفنية (TDS) لشركة مصر الصين لـ ASA بصيغة PDF:"
+                  : "Download the official EGYPT CHINA FOR ASA 8-Page Product Catalog, Company Brochure, and Technical Data Sheet (TDS) PDFs:"}
               </p>
             </div>
 
