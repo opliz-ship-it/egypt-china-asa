@@ -18,7 +18,7 @@ export default async function FaqPage({ params }: PageProps) {
   }
 
   const dict = getDictionary(locale);
-  const featuredProducts = PRODUCTS.slice(0, 3);
+  const featuredProducts = PRODUCTS;
 
   return (
     <div className="flex flex-col">

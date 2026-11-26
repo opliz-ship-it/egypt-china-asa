@@ -598,7 +598,7 @@ export function HotProductsAndSwatchExplorer({
 
   const filteredProducts =
     selectedCategory === "all"
-      ? PRODUCTS.slice(0, 3)
+      ? PRODUCTS
       : PRODUCTS.filter((p) => p.category === selectedCategory);
 
   return (
@@ -683,8 +683,8 @@ export function HotProductsAndSwatchExplorer({
             })}
           </div>
 
-          {/* 3-Column Product Cards Grid (collapsing 3 -> 2 -> 1) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Balanced 2-Column Product Cards Grid for 2 or 4 items */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filteredProducts.map((product) => (
               <article
                 key={product.slug}

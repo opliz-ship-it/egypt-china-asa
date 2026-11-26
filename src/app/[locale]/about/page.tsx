@@ -271,8 +271,8 @@ export default async function AboutPage({ params }: PageProps) {
             </h2>
             <p className="text-sm sm:text-base text-[var(--color-charcoal)] mt-1">
               {locale === "ar"
-                ? "معدات الفحص المعملي ومعايير الرقابة على الجودة لكل تشغيلة من حبيبات وأفلام وألواح ASA:"
-                : "Laboratory testing instruments and batch verification protocols governing every ASA production lot:"}
+                ? "معدات الفحص المعملي ومعايير الرقابة على الجودة لكل تشغيلة من أفلام وحبيبات ASA:"
+                : "Laboratory testing instruments and batch verification protocols governing every ASA film and resin lot:"}
             </p>
           </div>
 

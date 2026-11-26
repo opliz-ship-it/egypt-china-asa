@@ -105,7 +105,7 @@ export function HomeHeroShowcase({ locale, dict }: HomeHeroShowcaseProps) {
                       : "bg-[var(--color-navy-deep)] text-[var(--color-on-navy-muted)] border-[var(--color-navy-border)] hover:border-[var(--color-gold)]"
                   }`}
                 >
-                  01. {locale === "ar" ? "الأفلام والألواح" : "Films & Sheets"}
+                  01. {locale === "ar" ? "أفلام السطح ASA" : "ASA Surface Films"}
                 </button>
                 <button
                   type="button"
@@ -161,8 +161,8 @@ export function HomeHeroShowcase({ locale, dict }: HomeHeroShowcaseProps) {
                     decoding="sync"
                     alt={
                       locale === "ar"
-                        ? "هوية الشراكة المصرية الصينية مع ألواح الأسقف الملونة ASA"
-                        : "Sino-Egyptian partnership artwork featuring corrugated ASA roofing sheets"
+                        ? "هوية الشراكة المصرية الصينية مع تطبيقات تغليف ألواح الأسقف بفيلم ASA"
+                        : "Sino-Egyptian partnership artwork showing ASA surface film application on roofing sheets"
                     }
                     className="w-full h-52 sm:h-60 object-cover block"
                   />
@@ -176,8 +176,8 @@ export function HomeHeroShowcase({ locale, dict }: HomeHeroShowcaseProps) {
                     decoding="sync"
                     alt={
                       locale === "ar"
-                        ? "لوح سقف مموج ASA باللون الأحمر مع حبيبات البوليمر"
-                        : "Red textured corrugated ASA sheet with polymer resin granules"
+                        ? "عينة تغليف بفيلم ASA الأحمر فوق لوح مموج مع حبيبات البوليمر"
+                        : "Red textured ASA surface film laminated specimen with polymer resin granules"
                     }
                     className="w-full h-52 sm:h-60 object-cover block"
                   />

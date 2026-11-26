@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/config";
 
-export type ProductCategorySlug = "films" | "granules" | "coextrusion" | "sheets";
+export type ProductCategorySlug = "films" | "granules";
 
 export interface ProductSpecRow {
   property: Record<Locale, string>;
@@ -82,28 +82,6 @@ export const PRODUCT_CATEGORIES: Array<{
     summary: {
       ar: "حبيبات خام وماسترباتش ملون لعمليات البثق والحقن الصناعي عالية الثبات ضد الأشعة.",
       en: "Virgin polymer pellets and pre-colored compounds for weather-resistant extrusion and injection molding.",
-    },
-  },
-  {
-    slug: "coextrusion",
-    name: {
-      ar: "مواد البثق المشترك ASA",
-      en: "ASA Co-Extrusion Material",
-    },
-    summary: {
-      ar: "مركبات طبقة الحماية السطحية (Capstock) المصممة للاندماج الحراري مع ركائز PVC و UPVC.",
-      en: "Specialized capstock compounds tuned to match the melt rheology of rigid and foamed PVC/UPVC cores.",
-    },
-  },
-  {
-    slug: "sheets",
-    name: {
-      ar: "الألواح المموجة وألواح الأسقف",
-      en: "Corrugated & Roofing Sheets",
-    },
-    summary: {
-      ar: "ألواح أسقف وتكسيات صناعية متعددة الطبقات مغلفة بطبقة ASA للمصانع والمستودعات.",
-      en: "Multi-layer corrugated roofing and cladding sheets shielded by an exterior ASA weather barrier.",
     },
   },
 ];
@@ -538,227 +516,6 @@ export const PRODUCTS: ProductItem[] = [
       en: "Recommended melt temperature: 220 to 250 °C; mold temperature: 60 to 80 °C after 3 hours drying at 85 °C.",
     },
   },
-  {
-    slug: "asa-upvc-coextrusion-capstock-ec300",
-    code: "EC-COEX-300",
-    category: "coextrusion",
-    categoryName: {
-      ar: "مواد البثق المشترك ASA",
-      en: "ASA Co-Extrusion Material",
-    },
-    title: {
-      ar: "مركب البثق المشترك ASA لألواح القرميد والأسقف UPVC (EC-COEX-300)",
-      en: "ASA Co-Extrusion Capstock for UPVC Roofing (EC-COEX-300)",
-    },
-    shortSummary: {
-      ar: "مادة طبقة سطحية (0.20 إلى 0.50 مم) متوافقة حرارياً مع UPVC لإنتاج ألواح القرميد الإسباني والأسقف المضلعة.",
-      en: "Dedicated co-extrusion capstock (0.20mm to 0.50mm layer) rheology-matched to rigid UPVC for Spanish roof tiles and trapezoidal sheets.",
-    },
-    description: {
-      ar: "طُور مركب EC-COEX-300 خصيصاً لمصانع ألواح الأسقف التي تستخدم تقنية البثق المشترك متعدد الطبقات (ABA أو ABC). يتطابق سلوكه الانسيابي مع ركيزة UPVC داخل موزع القالب (Feedblock)، مما يمنح طبقة خارجية متجانسة شديدة الالتصاق.",
-      en: "EC-COEX-300 is specifically formulated for multi-layer roof sheet extruders running 2-layer or 3-layer (ASA/UPVC) feedblocks. Its melt elasticity matches rigid UPVC cores, ensuring uniform 0.20mm to 0.50mm capstock distribution across deep corrugation peaks.",
-    },
-    primaryImage: "/assets/opt/asa-black-corrugated.webp",
-    galleryImages: [
-      {
-        src: "/assets/opt/asa-black-corrugated.webp",
-        alt: {
-          ar: "لوح سقف UPVC مغلف بطبقة بثق مشترك ASA سوداء",
-          en: "UPVC roofing sheet co-extruded with charcoal black ASA capstock",
-        },
-      },
-      {
-        src: "/assets/opt/asa-red-sheet.webp",
-        alt: {
-          ar: "لوح بثق مشترك ASA باللون الأحمر مع الحبيبات",
-          en: "Red co-extruded ASA roof sheet with raw granules",
-        },
-      },
-    ],
-    keyMetrics: [
-      {
-        label: { ar: "سماكة طبقة الحماية", en: "Capstock Thickness" },
-        value: "0.20 to 0.50 mm",
-      },
-      {
-        label: { ar: "حرارة رأس القالب", en: "Die Head Window" },
-        value: "200 to 215 °C",
-      },
-      {
-        label: { ar: "ثبات اللون QUV", en: "QUV Stability" },
-        value: "ΔE < 1.5 (3000h)",
-      },
-    ],
-    specifications: [
-      {
-        property: { ar: "سماكة طبقة البثق المشترك الموصى بها", en: "Recommended Capstock Gauge" },
-        value: "0.20 to 0.50 mm",
-        method: "Optical Microscopy",
-      },
-      {
-        property: { ar: "الكثافة النوعية", en: "Specific Gravity" },
-        value: "1.07 g/cm³",
-        method: "ISO 1183",
-      },
-      {
-        property: { ar: "مؤشر تدفق الذوبان (220 °C / 10 kg)", en: "Melt Flow Rate (220 °C / 10 kg)" },
-        value: "16 to 22 g/10 min",
-        method: "ISO 1133",
-      },
-      {
-        property: { ar: "مقاومة صدمات شاربي المسننة", en: "Charpy Notched Impact" },
-        value: "14 to 17 kJ/m²",
-        method: "ISO 179",
-      },
-      {
-        property: { ar: "درجة حرارة التليين فيكات", en: "Vicat Softening Point" },
-        value: "95 to 99 °C",
-        method: "ISO 306",
-      },
-    ],
-    advantages: {
-      ar: [
-        "التصاق جزيئي مباشر مع UPVC دون الحاجة إلى طبقة لاصقة وسيطة.",
-        "يحافظ على سماكة ثابتة عند قمم التمويج ومناطق التشكيل الحراري العميق.",
-        "متوفر بسطح عالي اللمعان أو مطفي مقاوم للخدش والتكلس.",
-      ],
-      en: [
-        "Direct molecular interfacial adhesion to UPVC without requiring a tie-layer adhesive.",
-        "Maintains uniform capstock thickness over deep Spanish-tile thermoforming peaks.",
-        "Available in high-gloss or low-gloss matte formulations.",
-      ],
-    },
-    applications: {
-      ar: [
-        "بثق ألواح القرميد الصناعي الإسباني والكلاسيكي (ASA + UPVC).",
-        "ألواح الأسقف المضلعة والمموجة للمصانع والمنشآت التجارية.",
-        "البثق المشترك لقطاعات النوافذ وتكسيات الجدران الفوم.",
-      ],
-      en: [
-        "Spanish-style synthetic resin roof tiles (ASA/UPVC co-extrusion).",
-        "Trapezoidal and corrugated industrial factory roofing sheets.",
-        "Co-extruded window profiles and cellular PVC siding.",
-      ],
-    },
-    processingNotes: {
-      ar: "تجفيف مسبق عند 80 إلى 85 درجة مئوية لمدة 3 إلى 4 ساعات. حرارة الإسطوانة الفرعية: 185 إلى 215 درجة مئوية.",
-      en: "Pre-dry at 80 to 85 °C for 3 to 4 hours. Co-extruder barrel zones: 185 to 215 °C; feedblock and die: 200 to 215 °C.",
-    },
-  },
-  {
-    slug: "asa-corrugated-industrial-roof-sheet-ec400",
-    code: "EC-SHEET-400",
-    category: "sheets",
-    categoryName: {
-      ar: "الألواح المموجة وألواح الأسقف",
-      en: "Corrugated & Roofing Sheets",
-    },
-    title: {
-      ar: "ألواح الأسقف المموجة والمضلعة المغلفة بطبقة ASA (EC-SHEET-400)",
-      en: "ASA-Clad Corrugated Industrial Roofing Sheets (EC-SHEET-400)",
-    },
-    shortSummary: {
-      ar: "ألواح أسقف هندسية جاهزة للتركيب بسماكة إجمالية 2.00 إلى 3.50 مم تجمع بين صلابة UPVC ودرع الحماية الخارجي ASA.",
-      en: "Finished multi-layer corrugated roofing panels (2.00mm to 3.50mm total gauge) combining a rigid UPVC structural core with an ASA weather shield.",
-    },
-    description: {
-      ar: "تُنتج ألواح EC-SHEET-400 في مصنع مدينة السادات كبديل هندسي طويل العمر لألواح الصاج المجلفن والفيبرجلاس. لا تصدأ الألواح تحت تأثير الرطوبة الساحلية أو الأبخرة الكيميائية، وتوفر عزلاً حرارياً وصوتياً ملحوظاً أثناء الأمطار والحر الصيفي.",
-      en: "Manufactured at our Sadat City facility, EC-SHEET-400 corrugated panels replace corroding galvanized steel and fiberglass sheets. They never rust in coastal or acid-vapor industrial zones and provide thermal and acoustic insulation.",
-    },
-    primaryImage: "/assets/opt/asa-red-sheet.webp",
-    galleryImages: [
-      {
-        src: "/assets/opt/asa-red-sheet.webp",
-        alt: {
-          ar: "لوح سقف مموج ASA باللون الأحمر القرمزي",
-          en: "Crimson red ASA corrugated industrial roofing sheet",
-        },
-      },
-      {
-        src: "/assets/opt/asa-black-corrugated.webp",
-        alt: {
-          ar: "لوح سقف مموج ASA باللون الأسود الفحمي",
-          en: "Charcoal black ASA corrugated industrial roofing sheet",
-        },
-      },
-      {
-        src: "/assets/opt/hero-partnership.webp",
-        alt: {
-          ar: "تشكيلة ألوان ألواح الأسقف المموجة لشركة مصر الصين لـ ASA",
-          en: "Multi-color corrugated ASA roofing panels showcase",
-        },
-      },
-    ],
-    keyMetrics: [
-      {
-        label: { ar: "السماكة الكلية للوح", en: "Total Sheet Gauge" },
-        value: "2.00 to 3.50 mm",
-      },
-      {
-        label: { ar: "طبقة حماية ASA", en: "ASA Shield Layer" },
-        value: "0.25 to 0.50 mm",
-      },
-      {
-        label: { ar: "مقاومة الصدمات", en: "Impact Resistance" },
-        value: "12 to 18 kJ/m²",
-      },
-    ],
-    specifications: [
-      {
-        property: { ar: "السماكة الإجمالية للوح", en: "Total Panel Thickness" },
-        value: "2.00, 2.50, 3.00, 3.50 mm",
-        method: "ISO 4593",
-      },
-      {
-        property: { ar: "سماكة طبقة ASA السطحية", en: "Exterior ASA Layer Gauge" },
-        value: "0.25 to 0.50 mm",
-        method: "Microscopic Cross-Section",
-      },
-      {
-        property: { ar: "مقاومة الشد عند الخضوع", en: "Tensile Strength at Yield" },
-        value: "42 to 48 MPa",
-        method: "ISO 527",
-      },
-      {
-        property: { ar: "معامل الانحناء الميكانيكي", en: "Flexural Modulus" },
-        value: "2200 to 2450 MPa",
-        method: "ISO 178",
-      },
-      {
-        property: { ar: "ثبات اللون بعد 3000 ساعة QUV", en: "UV Color Stability (3000h QUV)" },
-        value: "ΔE < 1.5",
-        method: "ASTM G154",
-      },
-    ],
-    advantages: {
-      ar: [
-        "مقاومة كاملة للصدأ والأملاح والأحماض في المدن الساحلية والمناطق الصناعية.",
-        "عزل حراري يخفض درجة حرارة المبنى مقارنة بالصاج المعدني غير المعزول.",
-        "عزل صوتي يقلل ضوضاء الأمطار والرياح داخل صالات الإنتاج.",
-      ],
-      en: [
-        "Complete immunity to rust, salt spray, and chemical fumes in coastal and industrial zones.",
-        "Lower thermal conductivity than bare corrugated steel roofing.",
-        "Dampens rain and wind impact noise inside manufacturing halls.",
-      ],
-    },
-    applications: {
-      ar: [
-        "أسقف وتكسيات المصانع الكيميائية، مصانع الأسمدة، والمستودعات.",
-        "أسقف القرى السياحية، المظلات، ومواقف السيارات.",
-        "عنابر الدواجن والمزارع ومخازن الحبوب.",
-      ],
-      en: [
-        "Chemical plants, fertilizer warehouses, and industrial workshops.",
-        "Coastal resort roofing, canopies, and covered parking structures.",
-        "Poultry houses, agricultural barns, and grain storage facilities.",
-      ],
-    },
-    processingNotes: {
-      ar: "يُثبت اللوح على المدادات المعدنية باستخدام مسامير ذاتية الثقب مزودة بأغطية حماية EPDM/ASA مع مراعاة خلوص التمدد الحراري.",
-      en: "Fasten to steel purlins using self-drilling screws fitted with weatherproof EPDM/ASA sealing caps and pre-drilled thermal expansion clearance.",
-    },
-  },
 ];
 
 export const FAQ_ITEMS: FaqItem[] = [
@@ -818,7 +575,7 @@ export const FAQ_ITEMS: FaqItem[] = [
       en: "Can factories request physical ASA samples for production-line trials before bulk orders?",
     },
     answer: {
-      ar: "نعم. يتبع فريقنا مسار عمل من 4 مراحل يبدأ بتحديد متطلباتكم الفنية (التطبيق، الركيزة، السماكة، واللون)، ثم إرسال عينات فعلية من أفلام أو حبيبات أو ألواح ASA من مصنع مدينة السادات، تليها تجربة التشغيل الفعلي على ماكيناتكم للتحقق من الالتصاق والانسيابية قبل تأكيد الطلبية التجارية.",
+      ar: "نعم. يتبع فريقنا مسار عمل من 4 مراحل يبدأ بتحديد متطلباتكم الفنية (التطبيق، الركيزة، السماكة، واللون)، ثم إرسال عينات فعلية من أفلام أو حبيبات ASA من مصنع مدينة السادات، تليها تجربة التشغيل الفعلي على ماكيناتكم للتحقق من الالتصاق والانسيابية قبل تأكيد الطلبية التجارية.",
       en: "Yes. Every bulk supply begins with our 4-stage qualification workflow: specify your substrate and gauge requirements, inspect physical film rolls or resin granules dispatched from Sadat City, run live compatibility trials on your extrusion or molding line, and confirm production batch specifications only after trial approval.",
     },
   },
@@ -1009,11 +766,11 @@ export const EDITORIAL_SLOTS: EditorialSlotItem[] = [
     },
     bodyParagraphs: {
       ar: [
-        "تستعرض هذه المساحة أداء أفلام السطح EC-FILM-100 ومركبات البثق المشترك EC-COEX-300 في البيئات الساحلية عالية الملوحة مقارنة بالدهانات التقليدية التي تتقشر بفعل الرطوبة.",
+        "تستعرض هذه المساحة أداء أفلام السطح ASA Film (Top) وحبيبات راتنج EC-GRAN-200 في البيئات الساحلية عالية الملوحة مقارنة بالدهانات التقليدية التي تتقشر بفعل الرطوبة.",
         "تُضاف بيانات المشروع الساحلي وصور ما بعد التركيب فور اعتمادها من المكتب الهندسي.",
       ],
       en: [
-        "This case slot highlights the performance of EC-FILM-100 surface films and EC-COEX-300 capstock in high-salinity coastal environments where painted metal roofing blisters and corrodes.",
+        "This case slot highlights the performance of ASA Film (Top) surface films and EC-GRAN-200 extrusion granules in high-salinity coastal environments where painted metal roofing blisters and corrodes.",
         "Verified project coordinates and post-installation photographs will be inserted upon client release.",
       ],
     },
@@ -1051,7 +808,7 @@ export const PURCHASE_STEPS_11: Array<{
     title: { ar: "استلام الاستفسار الفني", en: "Receive Inquiry" },
     detail: {
       ar: "استقبال طلب المصنع أو المشروع عبر نموذج الموقع أو البريد الرسمي مع تحديد فئة المنتج المطلوبة.",
-      en: "Log initial inquiry from the manufacturer or contractor specifying target ASA film, granule, or sheet category.",
+      en: "Log initial inquiry from the manufacturer or contractor specifying target ASA film or resin granule category.",
     },
   },
   {
@@ -1074,7 +831,7 @@ export const PURCHASE_STEPS_11: Array<{
     step: "04",
     title: { ar: "تجهيز وإرسال العينات", en: "Sample Arrangement" },
     detail: {
-      ar: "إرسال عينات فعلية من الأفلام أو الحبيبات أو الألواح لإجراء اختبارات المطابقة والتشغيل على ماكينات العميل.",
+      ar: "إرسال عينات فعلية من رولات أفلام ASA أو حبيبات الراتنج لإجراء اختبارات المطابقة والتشغيل على ماكينات العميل.",
       en: "Prepare and dispatch physical ASA film rolls, resin granule samples, or color plaques for line trials.",
     },
   },

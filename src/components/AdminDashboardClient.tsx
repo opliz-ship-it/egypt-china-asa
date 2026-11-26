@@ -1067,8 +1067,8 @@ export function AdminDashboardClient({
                 className="text-xs font-semibold text-[var(--color-ink)]"
               >
                 {locale === "ar"
-                  ? "المعرف الإنجليزي المختصر (Slug مثل granules أو sheets)"
-                  : "Category Slug (e.g. granules, sheets)"}
+                  ? "المعرف الإنجليزي المختصر (Slug مثل top أو granules)"
+                  : "Category Slug (e.g. top, granules)"}
               </label>
               <input
                 id="cat-slug-input"

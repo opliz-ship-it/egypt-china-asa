@@ -388,8 +388,6 @@ export function InquiryForm({
             <option value="">{dict.inquiry.categoryOptions.select}</option>
             <option value="films">{dict.inquiry.categoryOptions.films}</option>
             <option value="granules">{dict.inquiry.categoryOptions.granules}</option>
-            <option value="coextrusion">{dict.inquiry.categoryOptions.coextrusion}</option>
-            <option value="sheets">{dict.inquiry.categoryOptions.sheets}</option>
             <option value="custom">{dict.inquiry.categoryOptions.custom}</option>
           </select>
           {fieldErrors.category && (

@@ -139,8 +139,8 @@ export function ServicesTabsClient({
               </h2>
               <p className="text-sm sm:text-base text-[var(--color-charcoal)] leading-relaxed">
                 {locale === "ar"
-                  ? "تُطبق شركة مصر الصين لـ ASA إرشادات صارمة لحماية رولات الأفلام وأكياس الحبيبات والألواح المموجة أثناء المناولة والشحن والتخزين في مخازن المصانع (وفق صفحة 07 من الكتالوج الفني)."
-                  : "EGYPT CHINA FOR ASA enforces strict export and domestic packaging protocols to safeguard ASA surface films, resin pellets, and corrugated sheets during transit and factory warehousing (per Catalogue Page 07)."}
+                  ? "تُطبق شركة مصر الصين لـ ASA إرشادات صارمة لحماية رولات الأفلام وأكياس الحبيبات أثناء المناولة والشحن والتخزين في مخازن المصانع (وفق صفحة 07 من الكتالوج الفني)."
+                  : "EGYPT CHINA FOR ASA enforces strict export and domestic packaging protocols to safeguard ASA surface film rolls and resin bags during transit and factory warehousing (per Catalogue Page 07)."}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">

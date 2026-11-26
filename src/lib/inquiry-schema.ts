@@ -3,8 +3,6 @@ import { z } from "zod";
 export const inquiryCategoryValues = [
   "films",
   "granules",
-  "coextrusion",
-  "sheets",
   "custom",
 ] as const;
 

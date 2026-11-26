@@ -35,8 +35,8 @@ export default async function ProductsArchivePage({
           </h1>
           <p className="text-sm sm:text-base text-[var(--color-on-navy-muted)] max-w-3xl leading-relaxed">
             {locale === "ar"
-              ? "كتالوج الأصناف المعتمدة لأفلام السطح الهندسية ASA، حبيبات البوليمر، مركبات البثق المشترك، وألواح الأسقف المموجة المصنعة في مدينة السادات."
-              : "Complete specification catalog of UV-stabilized ASA surface films, extrusion/injection resin granules, co-extrusion capstock, and corrugated roofing sheets manufactured in Sadat City."}
+              ? "كتالوج الأصناف المعتمدة لأفلام السطح الهندسية ASA (الطبقة العلوية والسفلية) وحبيبات راتنج البوليمر المصنعة في مدينة السادات."
+              : "Complete specification catalog of UV-stabilized ASA surface films (Top & Bottom layers) and polymer resin granules manufactured in Sadat City."}
           </p>
         </div>
         <RiverRibbon />

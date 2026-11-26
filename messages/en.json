@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteTitle": "EGYPT CHINA FOR ASA | Engineered ASA Surface Films & Polymer Resins",
-    "siteDescription": "Sino-Egyptian industrial manufacturer of UV-stabilized ASA weather-resistant films, ASA resin granules, co-extrusion capstock, and corrugated roofing sheets in Sadat City, Egypt."
+    "siteDescription": "Sino-Egyptian industrial manufacturer of UV-stabilized ASA weather-resistant surface films (Top & Bottom layers) and polymer resin granules in Sadat City, Egypt."
   },
   "common": {
     "skipToMain": "Skip to main content",
@@ -49,9 +49,7 @@
     "productsItems": {
       "all": "All ASA Product Lines",
       "films": "ASA Weather-Resistant Films",
-      "granules": "ASA Resin Granules",
-      "coextrusion": "ASA Co-Extrusion Material",
-      "sheets": "Corrugated & Roofing Sheets"
+      "granules": "ASA Resin Granules"
     },
     "aboutItems": {
       "overview": "Company Overview",
@@ -73,9 +71,9 @@
   },
   "hero": {
     "slide1": {
-      "label": "Slide 01: ASA Surface Films & Corrugated Sheets",
+      "label": "Slide 01: Engineered ASA Surface Films (Top & Bottom)",
       "headline": "Advanced ASA Solutions for Lasting Protection",
-      "summary": "We manufacture ASA films and sheets using modern production processes engineered for weather resistance, color stability, and durability across industrial and construction applications.",
+      "summary": "We manufacture UV-resistant ASA surface films and polymer resin granules using modern extrusion and compounding processes engineered for weather resistance, lasting color stability, and industrial durability.",
       "primaryCta": "Request Sample Kit",
       "secondaryCta": "Browse ASA Grades",
       "spec1Value": "1.07 g/cm³",
@@ -136,9 +134,9 @@
     ]
   },
   "partnership": {
-    "title": "Specialized ASA Film and Sheet Manufacturing",
+    "title": "Specialized ASA Film & Resin Granule Manufacturing",
     "subtitle": "From China to Egypt: localized production of weather-resistant ASA solutions in Sadat City.",
-    "paragraph1": "We specialize in manufacturing ASA films and sheets using modern production technologies to deliver weather resistance, lasting color stability, and structural durability for industrial and construction projects across Egypt and the Middle East.",
+    "paragraph1": "We specialize in manufacturing ASA surface films and polymer resin granules using modern production technologies to deliver weather resistance, lasting color stability, and bonding durability for industrial and construction manufacturers across Egypt and the Middle East.",
     "paragraph2": "Operating in Sadat City, Monufia Governorate, EGYPT CHINA FOR ASA pairs multi-layer extrusion and compounding control with continuous laboratory testing on every batch.",
     "coreAdvantagesTitle": "Three Core Product Advantages",
     "coreAdvantages": [
@@ -216,7 +214,7 @@
         "slotCode": "[STAGE_06_PACKAGING_SLOT]",
         "specLabel": "Protection & Dispatch",
         "specValue": "Moisture, Dust & Heat Shielded",
-        "description": "Film rolls, 25 kg resin bags, and corrugated panels are wrapped in sealed barrier layers with batch traceability labels for safe warehouse storage and transport."
+        "description": "Film rolls and 25 kg resin bags are wrapped in sealed barrier layers with batch traceability labels for safe warehouse storage and transport."
       }
     ]
   },
@@ -322,7 +320,7 @@
       {
         "number": "02",
         "title": "Review Physical Sample",
-        "detail": "We dispatch physical ASA film rolls, resin granule batches, or corrugated sheet cut-samples from Sadat City for visual and lab inspection."
+        "detail": "We dispatch physical ASA film rolls or resin granule batches from Sadat City for visual and lab inspection."
       },
       {
         "number": "03",
@@ -346,8 +344,8 @@
         "value": "Rigid UPVC, foamed PVC, ABS, or steel composite requiring thermal expansion matching."
       },
       {
-        "label": "03. Thickness & Roll Width",
-        "value": "0.15mm to 0.50mm for films and capstock, or 1.50mm to 3.50mm for solid and corrugated sheets."
+        "label": "03. Thickness & Roll / Resin Format",
+        "value": "0.15mm to 0.45mm for Top & Bottom ASA surface films, or extrusion and injection MFI 15 to 25 g/10 min resin grades."
       },
       {
         "label": "04. Color & Gloss Level",
@@ -382,8 +380,6 @@
       "select": "Select an ASA product category",
       "films": "ASA Weather-Resistant Films",
       "granules": "ASA Resin Granules (Extrusion & Injection)",
-      "coextrusion": "ASA Co-Extrusion Capstock Material",
-      "sheets": "Corrugated & Roofing ASA Sheets",
       "custom": "Custom Color Matching & Masterbatch"
     },
     "messageLabel": "Technical Specifications & Sample Details",
@@ -404,7 +400,7 @@
     }
   },
   "footer": {
-    "partnershipSummary": "Sino-Egyptian industrial partnership manufacturing UV-resistant ASA surface films, polymer granules, co-extrusion capstock, and corrugated roofing panels in Sadat City, Egypt.",
+    "partnershipSummary": "Sino-Egyptian industrial partnership manufacturing UV-resistant ASA surface films (Top & Bottom layers) and polymer resin granules in Sadat City, Egypt.",
     "socialTitle": "Official Social Channels",
     "socialPending": "Coming soon",
     "socialChannels": {

@@ -71,14 +71,6 @@ export function SiteHeader({ locale, dict }: SiteHeaderProps) {
             label: dict.nav.productsItems.granules,
             href: `/${locale}/products?category=granules`,
           },
-          {
-            label: dict.nav.productsItems.coextrusion,
-            href: `/${locale}/products?category=coextrusion`,
-          },
-          {
-            label: dict.nav.productsItems.sheets,
-            href: `/${locale}/products?category=sheets`,
-          },
         ],
       },
       {

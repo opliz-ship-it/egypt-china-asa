@@ -161,8 +161,8 @@ export function ProductsArchiveClient({
         </div>
       ) : (
         <>
-          {/* Responsive 3-Column Grid (collapsing 3 -> 2 -> 1) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Responsive 2-Column Grid for balanced layout across 2 or 4 items */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {paginatedProducts.map((product) => (
               <article
                 key={product.slug}
