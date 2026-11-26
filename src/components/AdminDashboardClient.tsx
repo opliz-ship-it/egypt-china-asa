@@ -44,6 +44,7 @@ export function AdminDashboardClient({
 
   const [activeTab, setActiveTab] = useState<AdminDashboardTab>("inquiries");
   const [session, setSession] = useState<AdminSessionData | null>(null);
+  const [isRestoringSession, setIsRestoringSession] = useState(true);
   const [loginIdentifier, setLoginIdentifier] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [isAuthenticating, setIsAuthenticating] = useState(false);
@@ -105,6 +106,10 @@ export function AdminDashboardClient({
         }
       } catch {
         // ignore storage errors
+      } finally {
+        if (!cancelled) {
+          setIsRestoringSession(false);
+        }
       }
     };
 
@@ -230,8 +235,8 @@ export function AdminDashboardClient({
                   ? "✓ جلسة إدارة مفعّلة"
                   : "✓ Admin Session Active"
                 : locale === "ar"
-                  ? "وضع العرض فقط (قراءة)"
-                  : "Preview Mode (Read Only)"}
+                  ? "تسجيل الدخول مطلوب"
+                  : "Sign In Required"}
             </span>
 
             {session && (
@@ -253,7 +258,16 @@ export function AdminDashboardClient({
           </div>
         </div>
 
-        {!session ? (
+        {!session && isRestoringSession ? (
+          <div
+            role="status"
+            className="rounded-[var(--radius-sm)] border border-[var(--color-navy-border)] bg-[var(--color-navy-deep)] px-4 py-4 text-sm text-[var(--color-on-navy)]"
+          >
+            {locale === "ar"
+              ? "جاري التحقق من جلسة الإدارة..."
+              : "Checking admin session..."}
+          </div>
+        ) : !session ? (
           <form
             onSubmit={handleSignIn}
             className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-end"
@@ -275,7 +289,7 @@ export function AdminDashboardClient({
                 required
                 value={loginIdentifier}
                 onChange={(e) => setLoginIdentifier(e.target.value)}
-                placeholder={locale === "ar" ? "Kananaroof" : "username"}
+                placeholder={locale === "ar" ? "اسم المستخدم" : "username"}
                 className="min-h-[44px] rounded-[var(--radius-sm)] border border-[var(--color-navy-border)] bg-[var(--color-ivory)] px-3.5 py-2 text-sm text-[var(--color-ink)]"
               />
             </div>
@@ -338,17 +352,6 @@ export function AdminDashboardClient({
         )}
       </div>
 
-      {/* KPI Overview & Site Readiness Strip */}
-      <AdminOverviewBar
-        locale={locale}
-        skus={resolvedSkus}
-        inquiries={resolvedInquiries}
-        media={resolvedMedia}
-        settings={resolvedSettings}
-        isAuthenticated={Boolean(session)}
-        onSelectTab={setActiveTab}
-      />
-
       {actionMessage && (
         <div
           role="status"
@@ -369,6 +372,19 @@ export function AdminDashboardClient({
           </button>
         </div>
       )}
+
+      {session && (
+        <>
+          {/* KPI Overview & Site Readiness Strip */}
+          <AdminOverviewBar
+            locale={locale}
+            skus={resolvedSkus}
+            inquiries={resolvedInquiries}
+            media={resolvedMedia}
+            settings={resolvedSettings}
+            isAuthenticated={Boolean(session)}
+            onSelectTab={setActiveTab}
+          />
 
       {/* 5-Tab Portal Navigation */}
       <div
@@ -479,6 +495,8 @@ export function AdminDashboardClient({
           onRefresh={handleRefreshAll}
           onActionMessage={setActionMessage}
         />
+      )}
+        </>
       )}
     </div>
   );
